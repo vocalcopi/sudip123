@@ -40,9 +40,9 @@
         /* Ambient neon gamer background mesh */
         .bg-gamer-mesh {
             background-image:
-                radial-gradient(circle at 10% 6%, rgba(6, 182, 212, 0.11), transparent 34%),
-                radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.11), transparent 36%),
-                radial-gradient(circle at 50% 96%, rgba(16, 185, 129, 0.07), transparent 42%);
+                radial-gradient(circle at 10% 6%, rgba(6, 182, 212, 0.12), transparent 34%),
+                radial-gradient(circle at 90% 10%, rgba(236, 72, 153, 0.11), transparent 36%),
+                radial-gradient(circle at 50% 96%, rgba(16, 185, 129, 0.08), transparent 42%);
         }
 
         /* Custom sleek scrollbar */
@@ -91,79 +91,81 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
             <!-- Brand -->
             <div class="flex items-center gap-3 min-w-0">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 via-violet-500 to-emerald-400 p-[2px] shadow-lg shadow-cyan-500/20 shrink-0">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 via-fuchsia-500 to-emerald-400 p-[2px] shadow-lg shadow-cyan-500/20 shrink-0">
                     <div class="w-full h-full rounded-[10px] bg-[#0b0c10] flex items-center justify-center">
                         <svg class="w-5 h-5 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M12 2C7.5 2 4.5 8.5 4.5 14a7.5 7.5 0 0 0 15 0C19.5 8.5 16.5 2 12 2Z" />
-                            <path d="M9 13.5 12 10l3 3.5-3 3.5-3-3.5Z" class="text-emerald-400" stroke="currentColor" />
+                            <path d="M9 13.5 12 10l3 3.5-3 3.5-3-3.5Z" class="text-fuchsia-400" stroke="currentColor" />
                         </svg>
                     </div>
                 </div>
                 <div class="min-w-0">
                     <h1 class="text-base sm:text-lg font-extrabold tracking-tight text-white truncate">
-                        Steal an Egg <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400">— Live Fusion Hub</span>
+                        Steal an Egg <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-fuchsia-400 to-emerald-400">— Live Fusion Hub</span>
                     </h1>
-                    <p class="text-[11px] sm:text-xs text-zinc-400 truncate">Smart pair matching • No account needed • Auto-clean 10–15m</p>
+                    <p class="text-[11px] sm:text-xs text-zinc-400 truncate">Real-time cross-device sync • No account needed • Auto-clean 10–15m</p>
                 </div>
             </div>
 
-            <!-- Right Status & Mini-Inbox Controls -->
+            <!-- Right Status & Inbox Controls -->
             <div class="flex items-center flex-wrap gap-2">
                 <!-- Active Count Pill -->
                 <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-semibold text-zinc-200">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
-                    </span>
+                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
                     <span id="activeCountBadge">0 Active</span>
                 </div>
 
-                <!-- Sync Status Pill -->
-                <div class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-medium text-zinc-400">
-                    <span id="syncDot" class="w-2 h-2 rounded-full bg-cyan-400"></span>
-                    <span id="syncText">Instant Mode</span>
+                <!-- Live Firebase Connection Pill -->
+                <div id="syncPill" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs font-semibold text-zinc-300 max-w-[220px]">
+                    <span id="syncDot" class="w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0"></span>
+                    <span id="syncText" class="truncate">Connecting...</span>
                 </div>
 
-                <!-- Mini-Inbox Button -->
+                <!-- Inbox Button -->
                 <button type="button" id="openInboxBtn"
-                    class="relative inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-violet-600/90 to-cyan-600/90 hover:from-violet-500 hover:to-cyan-500 text-white text-xs font-bold shadow-lg shadow-violet-500/20 transition-all active:scale-95">
+                    class="relative inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-fuchsia-600/90 to-cyan-600/90 hover:from-fuchsia-500 hover:to-cyan-500 text-white text-xs font-bold shadow-lg shadow-fuchsia-500/20 transition-all active:scale-95">
                     <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                     </svg>
-                    <span>Chats</span>
+                    <span>Inbox</span>
                     <span id="inboxBadge" class="hidden min-w-[20px] h-5 px-1.5 rounded-full bg-emerald-400 text-zinc-950 text-[11px] font-black flex items-center justify-center">0</span>
                 </button>
             </div>
         </div>
     </header>
 
+    <!-- Diagnostic Connection Error Banner (Hidden unless Firebase Auth/Firestore fails) -->
+    <div id="firebaseErrorBanner" class="hidden bg-rose-950/70 border-b border-rose-500/40 px-4 py-2.5 text-center text-xs text-rose-200">
+        <span id="firebaseErrorText"></span>
+    </div>
+
     <!-- ==================== MAIN 2-COLUMN WORKSPACE ==================== -->
     <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-5 flex-1 flex flex-col lg:flex-row gap-6 items-start">
 
-        <!-- ==================== LEFT COLUMN: 3-MODE POSTING PANEL ==================== -->
-        <aside class="w-full lg:w-[400px] xl:w-[420px] shrink-0 lg:sticky lg:top-[76px]">
+        <!-- ==================== LEFT COLUMN: 3-MODE + EVENT POSTING FORM ==================== -->
+        <aside class="w-full lg:w-[405px] xl:w-[425px] shrink-0 lg:sticky lg:top-[76px]">
             <div class="bg-[#12141d] border border-zinc-800/90 rounded-2xl p-5 shadow-2xl shadow-black/50">
-                <!-- Panel Title -->
+                <!-- Panel Header -->
                 <div class="flex items-center justify-between gap-2 mb-4">
                     <div>
                         <h2 class="text-base font-extrabold text-white flex items-center gap-2">
-                            <span class="w-6 h-6 rounded-lg bg-cyan-500/15 border border-cyan-400/35 text-cyan-400 flex items-center justify-center text-sm font-black">+</span>
-                            Post Fusion Request
+                            <span class="w-6 h-6 rounded-lg bg-cyan-500/15 border border-cyan-400/40 text-cyan-400 flex items-center justify-center text-sm font-black">+</span>
+                            Post Fusion Listing
                         </h2>
-                        <p class="text-[11px] text-zinc-400 mt-0.5">Pick your mode—our engine auto-matches pairs & stats.</p>
+                        <p class="text-[11px] text-zinc-400 mt-0.5">Broadcast live to all players • Auto-matches pairs & stats.</p>
                     </div>
                 </div>
 
-                <!-- 3-Mode + Event Tabs -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 gap-1.5 p-1.5 rounded-xl bg-[#0b0c10] border border-zinc-800 mb-4" role="tablist">
+                <!-- 4 Mode Tabs -->
+                <div class="grid grid-cols-2 gap-1.5 p-1.5 rounded-xl bg-[#0b0c10] border border-zinc-800 mb-4" role="tablist">
                     <button type="button" data-mode="have" class="mode-tab px-2.5 py-2 rounded-lg text-xs font-bold transition-all bg-cyan-500 text-zinc-950 shadow">
-                        1. I Have
+                        I Have
                     </button>
                     <button type="button" data-mode="need" class="mode-tab px-2.5 py-2 rounded-lg text-xs font-bold transition-all text-zinc-400 hover:text-white">
-                        2. I Need (LF)
+                        I Need (LF)
                     </button>
                     <button type="button" data-mode="both" class="mode-tab px-2.5 py-2 rounded-lg text-xs font-bold transition-all text-zinc-400 hover:text-white">
-                        3. Have + Need
+                        Have + Need
                     </button>
                     <button type="button" data-mode="event" class="mode-tab px-2.5 py-2 rounded-lg text-xs font-bold transition-all text-zinc-400 hover:text-white">
                         Event / Ritual
@@ -178,7 +180,7 @@
                             <label for="usernameInput" class="text-xs font-semibold text-zinc-300">
                                 Roblox Username <span class="text-rose-400">*</span>
                             </label>
-                            <span id="savedUserBadge" class="hidden text-[10px] font-semibold text-emerald-400">Saved for session</span>
+                            <span id="savedUserBadge" class="hidden text-[10px] font-semibold text-emerald-400">Saved on this device</span>
                         </div>
                         <input
                             type="text"
@@ -190,7 +192,7 @@
                         />
                     </div>
 
-                    <!-- MODE: HAVE PET FIELD (shown in 'have' and 'both') -->
+                    <!-- HAVE PET FIELD (shown in 'have' and 'both') -->
                     <div id="haveFieldGroup" class="relative">
                         <label for="haveInput" class="flex items-center justify-between text-xs font-semibold text-zinc-300 mb-1">
                             <span>Pet I Have <span class="text-rose-400">*</span></span>
@@ -210,27 +212,27 @@
                         <div id="haveDropdown" class="hidden absolute left-0 right-0 mt-1.5 max-h-56 overflow-y-auto rounded-xl bg-[#10131d] border border-zinc-700 shadow-2xl shadow-black/80 z-40 divide-y divide-zinc-800/70"></div>
                     </div>
 
-                    <!-- SWAP BUTTON (only shown in 'both' mode) -->
+                    <!-- 1-CLICK SWAP BUTTON (only shown in 'both') -->
                     <div id="swapRow" class="hidden flex items-center justify-center -my-1.5">
                         <button type="button" id="swapPetsBtn"
-                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0b0c10] border border-zinc-700/80 text-[11px] font-semibold text-zinc-400 hover:text-cyan-300 hover:border-cyan-500/50 transition-all">
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0b0c10] border border-zinc-700/80 text-[11px] font-semibold text-zinc-300 hover:text-cyan-300 hover:border-cyan-500/50 transition-all">
                             <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="17 1 21 5 17 9"></polyline><path d="M3 11V9a4 4 0 0 1 4-4h14"></path><polyline points="7 23 3 19 7 15"></polyline><path d="M21 13v2a4 4 0 0 1-4 4H3"></path></svg>
                             Swap Have & Need
                         </button>
                     </div>
 
-                    <!-- MODE: NEED PET FIELD (shown in 'need' and 'both') -->
+                    <!-- NEED PET FIELD (shown in 'need' and 'both') -->
                     <div id="needFieldGroup" class="hidden relative">
                         <label for="needInput" class="flex items-center justify-between text-xs font-semibold text-zinc-300 mb-1">
                             <span>Pet I Need (LF) <span class="text-rose-400">*</span></span>
-                            <span id="needPairHint" class="text-[10px] font-semibold text-violet-400 hidden"></span>
+                            <span id="needPairHint" class="text-[10px] font-semibold text-fuchsia-400 hidden"></span>
                         </label>
                         <div class="relative">
                             <input
                                 type="text"
                                 id="needInput"
                                 placeholder="Search pet needed (Archangel, Kraken...)"
-                                class="w-full rounded-xl bg-[#0b0c10] border border-zinc-700/90 pl-3.5 pr-9 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-violet-400 focus:ring-2 focus:ring-violet-500/20 transition-all"
+                                class="w-full rounded-xl bg-[#0b0c10] border border-zinc-700/90 pl-3.5 pr-9 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-fuchsia-400 focus:ring-2 focus:ring-fuchsia-500/20 transition-all"
                             />
                             <button type="button" id="needClearBtn" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-white p-1" aria-label="Clear Need">
                                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -239,7 +241,7 @@
                         <div id="needDropdown" class="hidden absolute left-0 right-0 mt-1.5 max-h-56 overflow-y-auto rounded-xl bg-[#10131d] border border-zinc-700 shadow-2xl shadow-black/80 z-40 divide-y divide-zinc-800/70"></div>
                     </div>
 
-                    <!-- MODE: EVENT / RITUAL SELECTOR (only shown in 'event' mode) -->
+                    <!-- EVENT / RITUAL SELECTOR (only shown in 'event') -->
                     <div id="eventFieldGroup" class="hidden space-y-2">
                         <label for="eventInput" class="block text-xs font-semibold text-zinc-300">
                             Group Event / Ritual <span class="text-rose-400">*</span>
@@ -247,7 +249,7 @@
                         <div class="flex flex-wrap gap-1.5">
                             <button type="button" data-event="Storm Conductor" class="event-chip px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#0b0c10] border border-zinc-700 text-cyan-300 hover:border-cyan-400 transition-all">⚡ Storm Conductor</button>
                             <button type="button" data-event="Enchanted Forest" class="event-chip px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#0b0c10] border border-zinc-700 text-emerald-300 hover:border-emerald-400 transition-all">🌿 Enchanted Forest</button>
-                            <button type="button" data-event="Alien Fusion" class="event-chip px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#0b0c10] border border-zinc-700 text-violet-300 hover:border-violet-400 transition-all">🛸 Alien Fusion</button>
+                            <button type="button" data-event="Alien Fusion" class="event-chip px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#0b0c10] border border-zinc-700 text-fuchsia-300 hover:border-fuchsia-400 transition-all">🛸 Alien Fusion</button>
                             <button type="button" data-event="Spirit Guardian" class="event-chip px-2.5 py-1.5 rounded-lg text-[11px] font-semibold bg-[#0b0c10] border border-zinc-700 text-amber-300 hover:border-amber-400 transition-all">👻 Spirit Guardian</button>
                         </div>
                         <input
@@ -258,21 +260,21 @@
                         />
                     </div>
 
-                    <!-- YOUR PET STATS (shown in 'have' and 'both' modes) -->
+                    <!-- OPTIONAL PET STATS (shown in 'have' and 'both') -->
                     <div id="myStatsGroup" class="p-3 rounded-xl bg-[#0b0c10] border border-zinc-800/90 space-y-2.5">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center justify-between gap-2">
                             <span class="text-[11px] font-bold uppercase tracking-wider text-zinc-400">Your Pet Stats (Optional)</span>
-                            <button type="button" id="plainToggleBtn"
-                                class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-zinc-700 bg-zinc-900 text-zinc-400 hover:text-white transition-all">
-                                Plain / No Mutations
-                            </button>
+                            <label class="inline-flex items-center gap-1.5 cursor-pointer select-none">
+                                <input type="checkbox" id="plainCheckbox" class="w-3.5 h-3.5 rounded accent-emerald-400 bg-zinc-900 border-zinc-700" />
+                                <span class="text-[11px] font-semibold text-zinc-300">Plain / No Muts</span>
+                            </label>
                         </div>
                         <div class="grid grid-cols-2 gap-2">
                             <input
                                 type="text"
                                 id="incomeInput"
                                 maxlength="20"
-                                placeholder="Income (e.g. 198B, 2.1T)"
+                                placeholder="Income (e.g. 143B, 2.1T)"
                                 class="w-full rounded-lg bg-[#12141d] border border-zinc-700/80 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 transition-all"
                             />
                             <input
@@ -287,17 +289,18 @@
                             type="text"
                             id="mutationsInput"
                             maxlength="60"
-                            placeholder="Mutations (e.g. 5 mutations, Thunderous + Abducted)"
+                            placeholder="Mutations (e.g. 5 muts, Thunderous + Abducted)"
                             class="w-full rounded-lg bg-[#12141d] border border-zinc-700/80 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 transition-all"
                         />
                     </div>
 
-                    <!-- MIN PARTNER INCOME FILTER (shown in 'need' and 'both' modes) -->
+                    <!-- MIN PARTNER INCOME FILTER (shown in 'need' and 'both') -->
                     <div id="minIncomeGroup" class="hidden p-3 rounded-xl bg-[#0b0c10] border border-zinc-800/90 space-y-2">
-                        <div class="flex items-center justify-between gap-2">
+                        <div class="flex flex-wrap items-center justify-between gap-1.5">
                             <span class="text-[11px] font-bold uppercase tracking-wider text-zinc-400">Min Partner Income</span>
-                            <div class="flex items-center gap-1">
-                                <button type="button" data-min="Any" class="min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-violet-500/20 border border-violet-400/50 text-violet-300">Any</button>
+                            <div class="flex flex-wrap items-center gap-1">
+                                <button type="button" data-min="Any" class="min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-fuchsia-500/20 border border-fuchsia-400/50 text-fuchsia-300">Any</button>
+                                <button type="button" data-min="50B+" class="min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-zinc-900 border border-zinc-700 text-zinc-400 hover:text-white">50B+</button>
                                 <button type="button" data-min="100B+" class="min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-zinc-900 border border-zinc-700 text-zinc-400 hover:text-white">100B+</button>
                                 <button type="button" data-min="500B+" class="min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-zinc-900 border border-zinc-700 text-zinc-400 hover:text-white">500B+</button>
                                 <button type="button" data-min="1T+" class="min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-zinc-900 border border-zinc-700 text-zinc-400 hover:text-white">1T+</button>
@@ -308,8 +311,8 @@
                             id="minIncomeInput"
                             maxlength="20"
                             value="Any"
-                            placeholder="Any, or e.g. 100B+, 1T+"
-                            class="w-full rounded-lg bg-[#12141d] border border-zinc-700/80 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-violet-400 transition-all"
+                            placeholder="Any, or custom (e.g. 250B+, 2T+)"
+                            class="w-full rounded-lg bg-[#12141d] border border-zinc-700/80 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-fuchsia-400 transition-all"
                         />
                     </div>
 
@@ -341,15 +344,15 @@
                         />
                     </div>
 
-                    <!-- AUTO-EXPIRE TIMER TOGGLE -->
+                    <!-- AUTO-EXPIRE DURATION TOGGLE -->
                     <div class="flex items-center justify-between gap-2 p-3 rounded-xl bg-[#0b0c10] border border-zinc-800/90">
                         <div>
                             <div class="text-xs font-semibold text-zinc-200">Auto-Expire Post</div>
-                            <div class="text-[10px] text-zinc-500">Auto-deletes to keep board clean</div>
+                            <div class="text-[10px] text-zinc-500">Keeps the live board fresh</div>
                         </div>
                         <div class="inline-flex rounded-lg bg-[#12141d] p-0.5 border border-zinc-700/80">
-                            <button type="button" data-duration="10" class="duration-pill px-3 py-1 rounded-md text-xs font-bold bg-cyan-500 text-zinc-950 transition-all">10m</button>
-                            <button type="button" data-duration="15" class="duration-pill px-3 py-1 rounded-md text-xs font-bold text-zinc-400 hover:text-white transition-all">15m</button>
+                            <button type="button" data-duration="10" class="duration-pill px-3 py-1 rounded-md text-xs font-bold bg-cyan-500 text-zinc-950 transition-all">10 Min</button>
+                            <button type="button" data-duration="15" class="duration-pill px-3 py-1 rounded-md text-xs font-bold text-zinc-400 hover:text-white transition-all">15 Min</button>
                         </div>
                     </div>
 
@@ -360,10 +363,10 @@
                     <button
                         type="submit"
                         id="submitBtn"
-                        class="w-full py-3 px-4 rounded-xl font-extrabold text-sm tracking-wide text-zinc-950 bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-300 hover:brightness-110 active:scale-[0.99] shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2"
+                        class="w-full py-3 px-4 rounded-xl font-extrabold text-sm tracking-wide text-zinc-950 bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-300 hover:brightness-110 active:scale-[0.99] shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2 disabled:opacity-60"
                     >
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-                        <span>Post & Find Matches</span>
+                        <span id="submitBtnText">Post Live & Find Matches</span>
                     </button>
                 </form>
             </div>
@@ -372,15 +375,15 @@
         <!-- ==================== RIGHT COLUMN: INSTANT MATCHES + LIVE FEED ==================== -->
         <section class="w-full flex-1 min-w-0 flex flex-col gap-4">
 
-            <!-- INSTANT MATCH STRIP (Appears automatically after posting) -->
-            <div id="instantMatchStrip" class="hidden bg-gradient-to-br from-emerald-950/50 via-[#12141d] to-cyan-950/40 border border-emerald-500/40 rounded-2xl p-4 shadow-xl shadow-emerald-950/30 animate-card">
+            <!-- INSTANT MATCHES FOUND STRIP -->
+            <div id="instantMatchStrip" class="hidden bg-gradient-to-br from-emerald-950/55 via-[#12141d] to-cyan-950/45 border border-emerald-500/45 rounded-2xl p-4 shadow-xl shadow-emerald-950/30 animate-card">
                 <div class="flex items-center justify-between gap-2 mb-3">
                     <div class="flex items-center gap-2 min-w-0">
                         <span class="w-7 h-7 rounded-lg bg-emerald-500/20 border border-emerald-400/50 text-emerald-300 flex items-center justify-center shrink-0">
                             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
                         </span>
                         <div class="min-w-0">
-                            <h3 id="matchStripTitle" class="text-sm font-extrabold text-white truncate">Active Matches Found!</h3>
+                            <h3 id="matchStripTitle" class="text-sm font-extrabold text-white truncate">Instant Matches Found!</h3>
                             <p id="matchStripSubtitle" class="text-[11px] text-emerald-300/80 truncate">Smart pair + stat-ranked partners ready now</p>
                         </div>
                     </div>
@@ -391,55 +394,51 @@
                 <div id="instantMatchCards" class="grid grid-cols-1 md:grid-cols-2 gap-2.5"></div>
             </div>
 
-            <!-- SEARCH & FILTER BAR -->
+            <!-- SEARCH, MODE FILTER PILLS & TRENDING PET CHIPS -->
             <div class="bg-[#12141d] border border-zinc-800/90 rounded-2xl p-4 shadow-xl shadow-black/30 space-y-3">
-                <div class="flex flex-col sm:flex-row gap-2.5">
-                    <!-- Search Input -->
-                    <div class="relative flex-1">
-                        <svg class="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                        </svg>
-                        <input
-                            type="text"
-                            id="feedSearchInput"
-                            placeholder="Search pet, username, mutations, or note..."
-                            class="w-full rounded-xl bg-[#0b0c10] border border-zinc-700/90 pl-10 pr-9 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all"
-                        />
-                        <button type="button" id="clearFeedSearchBtn" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white p-1">
-                            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                        </button>
-                    </div>
-
-                    <!-- Mode Filter Dropdown / Pills -->
-                    <select id="modeFilterSelect" aria-label="Filter by mode"
-                        class="rounded-xl bg-[#0b0c10] border border-zinc-700/90 px-3 py-2.5 text-xs font-bold text-zinc-200 focus:outline-none focus:border-violet-400 shrink-0">
-                        <option value="all">All Modes</option>
-                        <option value="have">I Have</option>
-                        <option value="need">I Need (LF)</option>
-                        <option value="both">Have + Need</option>
-                        <option value="event">Events / Rituals</option>
-                    </select>
+                <!-- Search Input -->
+                <div class="relative">
+                    <svg class="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input
+                        type="text"
+                        id="feedSearchInput"
+                        placeholder="Search pet, username, income, mutations, or note..."
+                        class="w-full rounded-xl bg-[#0b0c10] border border-zinc-700/90 pl-10 pr-9 py-2.5 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                    />
+                    <button type="button" id="clearFeedSearchBtn" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white p-1" aria-label="Clear search">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
                 </div>
 
-                <!-- Quick Filter Pills -->
+                <!-- Mode Filter Pills -->
+                <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5" id="modeFilterBar">
+                    <button type="button" data-mode-filter="all" class="mode-filter-pill shrink-0 px-3 py-1 rounded-lg text-[11px] font-bold border transition-all bg-fuchsia-500/20 border-fuchsia-400/60 text-fuchsia-200">All Modes</button>
+                    <button type="button" data-mode-filter="have" class="mode-filter-pill shrink-0 px-3 py-1 rounded-lg text-[11px] font-bold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-400 hover:text-cyan-300">I Have</button>
+                    <button type="button" data-mode-filter="need" class="mode-filter-pill shrink-0 px-3 py-1 rounded-lg text-[11px] font-bold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-400 hover:text-fuchsia-300">I Need (LF)</button>
+                    <button type="button" data-mode-filter="both" class="mode-filter-pill shrink-0 px-3 py-1 rounded-lg text-[11px] font-bold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-400 hover:text-white">Have + Need</button>
+                    <button type="button" data-mode-filter="event" class="mode-filter-pill shrink-0 px-3 py-1 rounded-lg text-[11px] font-bold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-400 hover:text-emerald-300">⚡ Events</button>
+                </div>
+
+                <!-- Trending Pet Quick-Filter Chips -->
                 <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5" id="quickFilterBar">
-                    <button type="button" data-filter="ALL" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-cyan-500/15 border-cyan-400 text-cyan-300">All</button>
+                    <button type="button" data-filter="ALL" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-cyan-500/15 border-cyan-400 text-cyan-300">All Pets</button>
                     <button type="button" data-filter="World Burner" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-amber-400/60 hover:text-amber-300">World Burner</button>
                     <button type="button" data-filter="Archangel" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-amber-400/60 hover:text-amber-300">Archangel</button>
-                    <button type="button" data-filter="Obsidian Rex" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-violet-400/60 hover:text-violet-300">Obsidian Rex</button>
-                    <button type="button" data-filter="Nebuloth Kraken" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-violet-400/60 hover:text-violet-300">Nebuloth Kraken</button>
-                    <button type="button" data-filter="Pegasus" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-cyan-400/60 hover:text-cyan-300">Pegasus</button>
+                    <button type="button" data-filter="Obsidian Rex" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-fuchsia-400/60 hover:text-fuchsia-300">Obsidian Rex</button>
+                    <button type="button" data-filter="Nebuloth Kraken" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-fuchsia-400/60 hover:text-fuchsia-300">Nebuloth Kraken</button>
+                    <button type="button" data-filter="Celestial Pegasus" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-cyan-400/60 hover:text-cyan-300">Celestial Pegasus</button>
                     <button type="button" data-filter="Skeleton Horse" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-cyan-400/60 hover:text-cyan-300">Skeleton Horse</button>
-                    <button type="button" data-filter="Skywhale" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-emerald-400/60 hover:text-emerald-300">Skywhale</button>
-                    <button type="button" data-filter="Sunlion" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-emerald-400/60 hover:text-emerald-300">Sunlion</button>
-                    <button type="button" data-filter="EVENTS" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-emerald-300 hover:border-emerald-400/60">⚡ Events</button>
+                    <button type="button" data-filter="Royal Skywhale" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-emerald-400/60 hover:text-emerald-300">Royal Skywhale</button>
+                    <button type="button" data-filter="Celestial Sunlion" class="filter-pill shrink-0 px-3 py-1.5 rounded-full text-xs font-semibold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-300 hover:border-emerald-400/60 hover:text-emerald-300">Celestial Sunlion</button>
                 </div>
             </div>
 
             <!-- Feed Header -->
             <div class="flex items-center justify-between px-1">
                 <div class="flex items-center gap-2">
-                    <h2 class="text-sm font-bold text-zinc-200">Live Matchmaking Board</h2>
+                    <h2 class="text-sm font-bold text-zinc-200">Live Fusion Board</h2>
                     <span id="visibleCountLabel" class="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-zinc-800 text-zinc-300">0 showing</span>
                 </div>
                 <span class="text-[11px] text-zinc-500">Click "Chat to Fuse" for private 1-on-1</span>
@@ -451,7 +450,7 @@
     </main>
 
     <!-- ==================== SLIDE-OVER 1-ON-1 CHAT & MINI-INBOX DRAWER ==================== -->
-    <div id="chatBackdrop" class="hidden fixed inset-0 bg-black/65 backdrop-blur-xs z-40 transition-opacity"></div>
+    <div id="chatBackdrop" class="hidden fixed inset-0 bg-black/65 backdrop-blur-sm z-40 transition-opacity"></div>
     <aside id="chatDrawer" class="fixed top-0 right-0 h-full w-full sm:w-[430px] bg-[#10121a] border-l border-zinc-800 z-50 translate-x-full transition-transform duration-200 ease-out flex flex-col shadow-2xl shadow-black">
 
         <!-- Drawer Header -->
@@ -478,12 +477,12 @@
             </div>
         </div>
 
-        <!-- Inline Roblox Username Prompt (Only shown if user tries to chat before setting username) -->
-        <div id="inlineUsernameGate" class="hidden p-4 bg-violet-950/40 border-b border-violet-500/30 space-y-2.5 shrink-0">
-            <div class="text-xs font-bold text-violet-200">Enter your Roblox Username to start chatting (no account needed):</div>
+        <!-- Inline Roblox Username Prompt (Shown only once if user hasn't set a Roblox username yet) -->
+        <div id="inlineUsernameGate" class="hidden p-4 bg-fuchsia-950/40 border-b border-fuchsia-500/35 space-y-2.5 shrink-0">
+            <div class="text-xs font-bold text-fuchsia-200">Enter your Roblox Username to start chatting (saved automatically, no account needed):</div>
             <div class="flex gap-2">
                 <input type="text" id="gateUsernameInput" maxlength="32" placeholder="Your Roblox username..."
-                    class="flex-1 rounded-xl bg-[#0b0c10] border border-violet-500/40 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400" />
+                    class="flex-1 rounded-xl bg-[#0b0c10] border border-fuchsia-500/40 px-3 py-2 text-xs text-white placeholder-zinc-500 focus:outline-none focus:border-cyan-400" />
                 <button type="button" id="saveGateUsernameBtn"
                     class="px-3.5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-zinc-950 text-xs font-extrabold transition-colors">
                     Continue
@@ -502,30 +501,27 @@
             <!-- Locked Room Banner -->
             <div id="roomLockedBanner" class="hidden px-4 py-2.5 bg-amber-500/15 border-b border-amber-500/35 text-xs font-semibold text-amber-200 flex items-center gap-2 shrink-0">
                 <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span>Fusion completed / Post expired — chat is locked.</span>
+                <span id="roomLockedText">Fusion completed / Post expired — chat is locked.</span>
             </div>
 
             <!-- Messages Scroll Area -->
             <div id="roomMessages" class="flex-1 overflow-y-auto p-4 space-y-2.5"></div>
 
-            <!-- Typing indicator (for demo mode) -->
-            <div id="typingIndicator" class="hidden px-4 pb-1.5 text-[11px] text-cyan-400 italic">Partner is typing...</div>
-
             <!-- Shortcut Chips + Message Composer -->
             <div id="chatComposerArea" class="p-3 bg-[#12141d] border-t border-zinc-800 space-y-2 shrink-0">
-                <!-- Fast Fuse-Ready Shortcut Chips -->
+                <!-- 1-Click Fuse-Ready Shortcut Chips -->
                 <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5">
                     <button type="button" data-chip="What income / kg?" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-zinc-800/90 hover:bg-zinc-700 border border-zinc-700 text-[11px] font-semibold text-zinc-200 transition-colors">What income / kg?</button>
                     <button type="button" data-chip="Sent friend req!" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-zinc-800/90 hover:bg-zinc-700 border border-zinc-700 text-[11px] font-semibold text-zinc-200 transition-colors">Sent friend req!</button>
                     <button type="button" data-chip="Come to pad" class="chat-chip shrink-0 px-2.5 py-1 rounded-full bg-zinc-800/90 hover:bg-zinc-700 border border-zinc-700 text-[11px] font-semibold text-zinc-200 transition-colors">Come to pad</button>
-                    <button type="button" id="dropUserChip" class="shrink-0 px-2.5 py-1 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-[11px] font-semibold text-cyan-300 transition-colors">Drop My Roblox User</button>
+                    <button type="button" id="dropUserChip" class="shrink-0 px-2.5 py-1 rounded-full bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-[11px] font-semibold text-cyan-300 transition-colors">Drop My User</button>
                     <button type="button" id="dropVipChip" class="shrink-0 px-2.5 py-1 rounded-full bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-500/40 text-[11px] font-semibold text-emerald-300 transition-colors">Drop VIP Link</button>
                 </div>
 
                 <!-- Inline Anti-Spam / Link Warning -->
                 <div id="chatWarningBox" class="hidden text-[11px] font-semibold text-rose-300 bg-rose-500/10 border border-rose-500/35 rounded-lg px-2.5 py-1.5"></div>
 
-                <!-- Input Form -->
+                <!-- Message Input Form -->
                 <form id="chatSendForm" class="flex items-end gap-2">
                     <div class="flex-1 relative">
                         <input
@@ -546,30 +542,58 @@
         </div>
     </aside>
 
-    <!-- ==================== TOAST CONTAINER ==================== -->
+    <!-- ==================== TOAST NOTIFICATION CONTAINER ==================== -->
     <div id="toastContainer" class="fixed bottom-5 left-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- ==================== APPLICATION LOGIC ==================== -->
+    <!-- ==================== FIREBASE V10 + APP LOGIC ==================== -->
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, setDoc, updateDoc, deleteDoc, doc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+        import {
+            getFirestore,
+            collection,
+            addDoc,
+            setDoc,
+            updateDoc,
+            doc,
+            query,
+            where,
+            onSnapshot
+        } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js";
 
         /* ============================================================================
-           1. PET CATALOG, PINNED ACTIVE FUSIONS & HIDDEN FUSION PAIR MAP
+           1. PRODUCTION FIREBASE CONFIGURATION
+        ============================================================================ */
+        const firebaseConfig = {
+            apiKey: "AIzaSyDMCT21sBp2B03s9-09hvLTsHgCA1rABC4",
+            authDomain: "steal-an-egg-hub.firebaseapp.com",
+            projectId: "steal-an-egg-hub",
+            storageBucket: "steal-an-egg-hub.firebasestorage.app",
+            messagingSenderId: "448285107738",
+            appId: "1:448285107738:web:660f656402affe4a3393a3",
+            measurementId: "G-KZLWB766N3"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        /* ============================================================================
+           2. PET DATABASE, PINNED FUSION PETS & HIDDEN PAIR MAP
         ============================================================================ */
         const PINNED_PETS = [
             { name: "World Burner", rarity: "Divine", pinned: true },
             { name: "Archangel", rarity: "Divine", pinned: true },
             { name: "Obsidian Rex", rarity: "Divine", pinned: true },
             { name: "Nebuloth Kraken", rarity: "Divine", pinned: true },
-            { name: "Pegasus", rarity: "Mythic", pinned: true },
+            { name: "Celestial Pegasus", rarity: "Mythic", pinned: true },
             { name: "Skeleton Horse", rarity: "Mythic", pinned: true },
             { name: "Royal Skywhale", rarity: "Divine", pinned: true },
             { name: "Celestial Sunlion", rarity: "Divine", pinned: true },
         ];
 
-        const OTHER_PETS = [
+        const EXTENDED_PETS = [
+            // Divine
             { name: "Aetheron", rarity: "Divine" },
             { name: "Spirit World Guardian", rarity: "Divine" },
             { name: "Prismare", rarity: "Divine" },
@@ -584,6 +608,11 @@
             { name: "Cursed Monarch", rarity: "Divine" },
             { name: "Pumpkin King", rarity: "Divine" },
             { name: "Slick Rick", rarity: "Divine" },
+            { name: "Spooky Sahur", rarity: "Divine" },
+            { name: "Solaris Seraph", rarity: "Divine" },
+            { name: "Astral Leviathan", rarity: "Divine" },
+            { name: "Eclipse Wyrm", rarity: "Divine" },
+            // Eternal
             { name: "Eternal Lunar Dragon", rarity: "Eternal" },
             { name: "Ice Dragon", rarity: "Eternal" },
             { name: "Phoenix", rarity: "Eternal" },
@@ -592,47 +621,64 @@
             { name: "Ghost Reaper", rarity: "Eternal" },
             { name: "Abyss Overlord", rarity: "Eternal" },
             { name: "Spirit Panda", rarity: "Eternal" },
+            { name: "Frost Titan", rarity: "Eternal" },
+            { name: "Inferno Hydra", rarity: "Eternal" },
+            { name: "Shadow Sovereign", rarity: "Eternal" },
+            // Secret
             { name: "Cosmic Dragon", rarity: "Secret" },
             { name: "Cerberus", rarity: "Secret" },
             { name: "Kraken", rarity: "Secret" },
             { name: "T-Rex", rarity: "Secret" },
+            { name: "Void Stalker", rarity: "Secret" },
+            { name: "Starlight Griffin", rarity: "Secret" },
+            { name: "Nebula Serpent", rarity: "Secret" },
+            // Cosmic
             { name: "Leviathan", rarity: "Cosmic" },
             { name: "Royal Sphinx", rarity: "Cosmic" },
+            { name: "Galaxy Golem", rarity: "Cosmic" },
+            { name: "Quasar Fox", rarity: "Cosmic" },
+            { name: "Nova Panther", rarity: "Cosmic" },
+            // Mythic & Legendary
+            { name: "Thunder Griffin", rarity: "Mythic" },
+            { name: "Emerald Wyvern", rarity: "Mythic" },
+            { name: "Crimson Chimera", rarity: "Mythic" },
+            { name: "Frost Fenrir", rarity: "Mythic" },
+            { name: "Golden Basilisk", rarity: "Legendary" },
+            { name: "Magma Minotaur", rarity: "Legendary" },
+            { name: "Storm Roc", rarity: "Legendary" },
+            { name: "Crystal Stag", rarity: "Legendary" },
+            // Special / Materials
             { name: "Glass Stone (20+)", rarity: "Special" },
+            { name: "Stormglass (12+)", rarity: "Special" },
+            { name: "Thunderbolts", rarity: "Special" },
         ];
 
-        const EVENT_RITUALS = [
-            { name: "Storm Conductor", rarity: "Event" },
-            { name: "Enchanted Forest", rarity: "Event" },
-            { name: "Alien Fusion", rarity: "Event" },
-            { name: "Spirit Guardian", rarity: "Event" },
-        ];
+        const ALL_PETS = [...PINNED_PETS, ...EXTENDED_PETS];
 
-        const ALL_PETS = [...PINNED_PETS, ...OTHER_PETS, ...EVENT_RITUALS];
-
-        // Hidden Fusion Pair Map (Canonical lowercase -> Partner canonical name + Fuse title)
+        // Hidden Fusion Pair Map (Canonical lowercase key -> Partner + Recipe label)
         const FUSION_PAIRS = {
             "world burner":      { partner: "Archangel",         recipe: "Aethron / Divine Fuse" },
             "archangel":         { partner: "World Burner",      recipe: "Aethron / Divine Fuse" },
             "obsidian rex":      { partner: "Nebuloth Kraken",   recipe: "Obsidian Kraken Fuse" },
             "nebuloth kraken":   { partner: "Obsidian Rex",      recipe: "Obsidian Kraken Fuse" },
-            "pegasus":           { partner: "Skeleton Horse",    recipe: "Celestial Steed Fuse" },
-            "skeleton horse":    { partner: "Pegasus",           recipe: "Celestial Steed Fuse" },
+            "celestial pegasus": { partner: "Skeleton Horse",    recipe: "Celestial Steed Fuse" },
+            "skeleton horse":    { partner: "Celestial Pegasus", recipe: "Celestial Steed Fuse" },
             "royal skywhale":    { partner: "Celestial Sunlion", recipe: "Sky & Sun Fuse" },
             "celestial sunlion": { partner: "Royal Skywhale",    recipe: "Sky & Sun Fuse" },
         };
 
-        // Alias normalization so "skywhale", "sunlion", "wb", "arch", "rex", "kraken" match seamlessly
+        // Normalize common player abbreviations so matching works even with shorthand
         function normalizePetKey(raw) {
             if (!raw) return "";
             const s = raw.trim().toLowerCase();
-            if (s === "wb" || s === "word burner" || s === "worldburner" || s === "world buner") return "world burner";
-            if (s === "arch" || s === "arch angel") return "archangel";
-            if (s === "rex" || s === "obs rex" || s === "obsidian trex") return "obsidian rex";
-            if (s === "kraken" || s === "nebuloth") return "nebuloth kraken";
+            if (s === "wb" || s === "word burner" || s === "worldburner" || s === "world buner" || s === "world urner") return "world burner";
+            if (s === "arch" || s === "arch angel" || s === "arcangel") return "archangel";
+            if (s === "rex" || s === "obs rex" || s === "obsidian trex" || s === "t-rex obsidian") return "obsidian rex";
+            if (s === "kraken" || s === "nebuloth" || s === "nebulath kraken") return "nebuloth kraken";
+            if (s === "pegasus" || s === "pegesus" || s === "pegsus") return "celestial pegasus";
+            if (s === "sk horse" || s === "sk hrse" || s === "skelton horse") return "skeleton horse";
             if (s === "skywhale" || s === "sky whale" || s === "whale") return "royal skywhale";
             if (s === "sunlion" || s === "sun lion" || s === "lion") return "celestial sunlion";
-            if (s === "sk horse" || s === "sk hrse") return "skeleton horse";
             return s;
         }
 
@@ -641,14 +687,15 @@
         }
 
         const RARITY_BADGE = {
-            Divine:  "bg-amber-500/15 text-amber-300 border-amber-400/45",
-            Eternal: "bg-rose-500/15 text-rose-300 border-rose-400/45",
-            Secret:  "bg-red-500/15 text-red-300 border-red-500/45",
-            Cosmic:  "bg-violet-500/15 text-violet-300 border-violet-400/45",
-            Mythic:  "bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-400/45",
-            Special: "bg-cyan-500/15 text-cyan-300 border-cyan-400/45",
-            Event:   "bg-emerald-500/15 text-emerald-300 border-emerald-400/45",
-            Custom:  "bg-zinc-700/40 text-zinc-300 border-zinc-600/50",
+            Divine:    "bg-amber-500/15 text-amber-300 border-amber-400/45",
+            Eternal:   "bg-rose-500/15 text-rose-300 border-rose-400/45",
+            Secret:    "bg-red-500/15 text-red-300 border-red-500/45",
+            Cosmic:    "bg-violet-500/15 text-violet-300 border-violet-400/45",
+            Mythic:    "bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-400/45",
+            Legendary: "bg-orange-500/15 text-orange-300 border-orange-400/45",
+            Special:   "bg-cyan-500/15 text-cyan-300 border-cyan-400/45",
+            Event:     "bg-emerald-500/15 text-emerald-300 border-emerald-400/45",
+            Custom:    "bg-zinc-700/40 text-zinc-300 border-zinc-600/50",
         };
 
         function getPetRarity(name) {
@@ -658,9 +705,9 @@
         }
 
         /* ============================================================================
-           2. INCOME PARSER & 3-LAYER SMART MATCHING + 2-TIER STAT RANKING
+           3. INCOME PARSER & 3-LAYER SMART MATCHING + 2-TIER RANKING
         ============================================================================ */
-        // Parses income strings ("198B", "2.1T", "9.5t/s", "750M", "1 trillion") into numeric Billions
+        // Parses K, M, B, T income strings into numeric Billions for comparison
         function parseIncomeToBillions(raw) {
             if (!raw || typeof raw !== "string") return null;
             const cleaned = raw.trim().toLowerCase().replace(/,/g, ".").replace(/\/s/g, "").replace(/\+/g, "");
@@ -681,24 +728,22 @@
             return num;
         }
 
-        // Evaluates whether two posts match (3-layer logic) and returns 2-tier ranking
         function evaluateMatch(myPost, otherPost) {
             if (!myPost || !otherPost || myPost.id === otherPost.id) return null;
             if (otherPost.userId === myPost.userId) return null;
 
-            // Layer 0: Event / Ritual matching
+            // Event / Ritual match
             if (myPost.mode === "event" || otherPost.mode === "event") {
                 if (myPost.mode === "event" && otherPost.mode === "event") {
                     const a = (myPost.eventName || "").trim().toLowerCase();
                     const b = (otherPost.eventName || "").trim().toLowerCase();
                     if (a && b && (a === b || a.includes(b) || b.includes(a))) {
-                        return { tier: 1, label: "Exact Event Match", reason: `Same Ritual: ${otherPost.eventName}` };
+                        return { tier: 1, label: "Exact Match", reason: `Same Ritual: ${otherPost.eventName}` };
                     }
                 }
                 return null;
             }
 
-            // Normalize what each post has & wants (explicit + inferred via hidden pair map)
             const myHave = normalizePetKey(myPost.have);
             const myNeed = normalizePetKey(myPost.need);
             const otherHave = normalizePetKey(otherPost.have);
@@ -720,19 +765,13 @@
                 matchReason = `Has ${otherPost.have} you need`;
             }
 
-            // Layer 2: Smart Pair (Have X <-> Have Partner(X), or Need X <-> Need Partner(X))
+            // Layer 2: Smart Hidden Fusion Pair Match
             if (!petMatched && myHave && otherHave && myPartnerOfHave && myPartnerOfHave === otherHave) {
                 petMatched = true;
                 matchReason = `Fusion Pair: ${myPost.have} ⇄ ${otherPost.have}`;
             } else if (!petMatched && myNeed && otherNeed && myPartnerOfNeed && myPartnerOfNeed === otherNeed) {
                 petMatched = true;
                 matchReason = `Complementary Pair (${getPairInfo(myNeed)?.recipe || "Fuse"})`;
-            } else if (!petMatched && myPost.mode === "both" && otherPost.mode === "have" && myNeed === otherHave) {
-                petMatched = true;
-                matchReason = `Has ${otherPost.have}`;
-            } else if (!petMatched && myPost.mode === "have" && otherPost.mode === "both" && otherNeed === myHave) {
-                petMatched = true;
-                matchReason = `Needs your ${myPost.have}`;
             } else if (!petMatched && myHave && otherHave && otherPartnerOfHave && otherPartnerOfHave === myHave) {
                 petMatched = true;
                 matchReason = `Fusion Pair: ${myPost.have} ⇄ ${otherPost.have}`;
@@ -746,229 +785,58 @@
 
             if (myMinReq !== null) {
                 if (otherIncome === null) {
-                    return { tier: 2, label: "Possible Match", badgeNote: "Stats not listed", reason: matchReason };
+                    return { tier: 2, label: "Possible Match (Stats not listed)", reason: matchReason };
                 }
                 if (otherIncome < myMinReq) {
-                    return null; // Explicitly below user's minimum income requirement
+                    return null;
                 }
-                return { tier: 1, label: "Exact Match", badgeNote: "Meets min income", reason: matchReason };
+                return { tier: 1, label: "Exact Match", reason: matchReason };
             }
 
-            // User set Min Income to "Any"
-            if (otherIncome !== null) {
-                return { tier: 1, label: "Exact Match", badgeNote: otherPost.income, reason: matchReason };
-            }
-            return { tier: 1, label: "Exact Match", badgeNote: "Any stats", reason: matchReason };
+            return { tier: 1, label: "Exact Match", reason: matchReason };
         }
 
         /* ============================================================================
-           3. STATE, SILENT SESSION IDENTITY & DEMO SEED DATA
+           4. APPLICATION STATE & LOCALSTORAGE IDENTITY
         ============================================================================ */
-        const appId = typeof __app_id !== "undefined" ? __app_id : "steal-an-egg-fusion-hub";
-        const firebaseConfig = typeof __firebase_config !== "undefined" ? JSON.parse(__firebase_config) : null;
-        const initialAuthToken = typeof __initial_auth_token !== "undefined" ? __initial_auth_token : null;
+        const LS_USER_KEY = "sae_roblox_username";
+        const LS_VIP_KEY = "sae_vip_link";
 
-        let db = null;
-        let auth = null;
-        let currentUser = null;
-        let isFirebaseLive = false;
+        let currentUid = null;
+        let isConnected = false;
 
-        // Silent session identity (no login/account needed)
-        const localSessionId = "sess-" + Math.random().toString(36).slice(2, 11);
         let savedRobloxUsername = "";
         let savedVipLink = "";
 
-        // Form UI State
+        try {
+            savedRobloxUsername = localStorage.getItem(LS_USER_KEY) || "";
+            savedVipLink = localStorage.getItem(LS_VIP_KEY) || "";
+        } catch {
+            // Safe fallback if localStorage is restricted
+        }
+
+        // Form State
         let activePostMode = "have"; // 'have' | 'need' | 'both' | 'event'
-        let isPlainMutations = false;
         let selectedDurationMinutes = 10;
 
-        // Feed Filter State
+        // Feed State
+        let allLivePosts = []; // Raw snapshot from Firestore fusion_posts (filtered in memory)
         let feedSearchQuery = "";
         let feedModeFilter = "all";
         let feedQuickFilter = "ALL";
         let latestMyPostId = null;
 
-        // Listings Data
-        let remotePosts = [];
-        let localPosts = createDemoPosts();
-
-        // Private 1-on-1 Chat State
-        let chatRooms = new Map(); // roomId -> { id, postId, postSummary, posterId, posterName, visitorId, visitorName, blocked, locked, unread, lastUpdated, messages: [] }
+        // Chat State
+        let chatRooms = new Map(); // roomId -> room doc
         let activeDrawerView = "inbox"; // 'inbox' | 'room'
         let activeRoomId = null;
+        let activeRoomMessages = [];
+        let unsubscribeMessages = null;
         let pendingChatPostId = null;
         let lastSentMessageAt = 0;
 
-        function getMyUid() {
-            return currentUser ? currentUser.uid : localSessionId;
-        }
-
-        function createDemoPosts() {
-            const now = Date.now();
-            return [
-                {
-                    id: "demo-p1",
-                    userId: "demo-u1",
-                    username: "Roshaniw71",
-                    mode: "both",
-                    have: "Obsidian Rex",
-                    need: "Nebuloth Kraken",
-                    eventName: "",
-                    income: "9.5T",
-                    weight: "6,120 kg",
-                    mutations: "5 mutations",
-                    plain: false,
-                    minIncome: "100B+",
-                    vipLink: "https://www.roblox.com/games",
-                    note: "Ready for ritual right now, join VIP or chat!",
-                    durationMinutes: 15,
-                    createdAt: now - 40 * 1000,
-                    expiresAt: now + (14 * 60 + 20) * 1000,
-                    lastSeen: now,
-                    isDemo: true
-                },
-                {
-                    id: "demo-p2",
-                    userId: "demo-u2",
-                    username: "dudeno23445",
-                    mode: "both",
-                    have: "Archangel",
-                    need: "World Burner",
-                    eventName: "",
-                    income: "106B",
-                    weight: "7.6m kg",
-                    mutations: "Thunderous + Abducted",
-                    plain: false,
-                    minIncome: "100B+",
-                    vipLink: "",
-                    note: "LF 102B+ World Burner for Aethron fuse",
-                    durationMinutes: 10,
-                    createdAt: now - 85 * 1000,
-                    expiresAt: now + (8 * 60 + 35) * 1000,
-                    lastSeen: now,
-                    isDemo: true
-                },
-                {
-                    id: "demo-p3",
-                    userId: "demo-u3",
-                    username: "lushylust_",
-                    mode: "have",
-                    have: "World Burner",
-                    need: "",
-                    eventName: "",
-                    income: "373B",
-                    weight: "219M kg",
-                    mutations: "",
-                    plain: false,
-                    minIncome: "Any",
-                    vipLink: "https://www.roblox.com/games",
-                    note: "Looking for Archangel to fuse with my World Burner",
-                    durationMinutes: 10,
-                    createdAt: now - 130 * 1000,
-                    expiresAt: now + (7 * 60 + 50) * 1000,
-                    lastSeen: now,
-                    isDemo: true
-                },
-                {
-                    id: "demo-p4",
-                    userId: "demo-u4",
-                    username: "eternityplaya",
-                    mode: "have",
-                    have: "Nebuloth Kraken",
-                    need: "",
-                    eventName: "",
-                    income: "140B",
-                    weight: "",
-                    mutations: "Dark Matter",
-                    plain: false,
-                    minIncome: "Any",
-                    vipLink: "",
-                    note: "Fast fuse, plain Rex is fine too",
-                    durationMinutes: 10,
-                    createdAt: now - 440 * 1000,
-                    expiresAt: now + (2 * 60 + 40) * 1000,
-                    lastSeen: now,
-                    isDemo: true
-                },
-                {
-                    id: "demo-p5",
-                    userId: "demo-u5",
-                    username: "shimmerissad",
-                    mode: "both",
-                    have: "Skeleton Horse",
-                    need: "Pegasus",
-                    eventName: "",
-                    income: "53B",
-                    weight: "",
-                    mutations: "Plain",
-                    plain: true,
-                    minIncome: "Any",
-                    vipLink: "",
-                    note: "Plain or mutated Pegasus, chat me!",
-                    durationMinutes: 15,
-                    createdAt: now - 210 * 1000,
-                    expiresAt: now + (11 * 60 + 30) * 1000,
-                    lastSeen: now - 90 * 1000, // Simulated offline/AFK user
-                    isDemo: true
-                },
-                {
-                    id: "demo-p6",
-                    userId: "demo-u6",
-                    username: "rsh7270",
-                    mode: "event",
-                    have: "",
-                    need: "",
-                    eventName: "Storm Conductor",
-                    income: "",
-                    weight: "",
-                    mutations: "",
-                    plain: false,
-                    minIncome: "Any",
-                    vipLink: "https://www.roblox.com/games",
-                    note: "Have 12 stormglass! Need 2 more players for lobby",
-                    durationMinutes: 10,
-                    createdAt: now - 555 * 1000,
-                    expiresAt: now + 45 * 1000, // Under 1m red countdown demo
-                    lastSeen: now,
-                    isDemo: true
-                },
-                {
-                    id: "demo-p7",
-                    userId: "demo-u7",
-                    username: "kingv1277ff",
-                    mode: "need",
-                    have: "",
-                    need: "Royal Skywhale",
-                    eventName: "",
-                    income: "",
-                    weight: "",
-                    mutations: "",
-                    plain: false,
-                    minIncome: "Any",
-                    vipLink: "",
-                    note: "Anyone wanna fuse skywhale + sunlion?",
-                    durationMinutes: 15,
-                    createdAt: now - 60 * 1000,
-                    expiresAt: now + (14 * 60) * 1000,
-                    lastSeen: now,
-                    isDemo: true
-                }
-            ];
-        }
-
-        function getAllActivePosts() {
-            const now = Date.now();
-            const source = isFirebaseLive ? remotePosts : localPosts;
-            const active = source.filter((p) => p.expiresAt > now);
-            if (isFirebaseLive && active.length === 0) {
-                return localPosts.filter((p) => p.isDemo && p.expiresAt > now);
-            }
-            return active;
-        }
-
         /* ============================================================================
-           4. SECURITY & HELPER UTILITIES (ROBLOX-ONLY LINK FILTER, CLIPBOARD, TOASTS)
+           5. SECURITY & UI HELPERS
         ============================================================================ */
         function escapeHtml(str) {
             if (typeof str !== "string") return "";
@@ -991,9 +859,8 @@
             }
         }
 
-        // Detects any link/domain in chat text and ensures ONLY official roblox.com URLs are allowed
         function checkChatTextForBlockedLinks(text) {
-            const urlPattern = /(?:https?:\/\/[^\s]+|www\.[^\s]+|\b[a-z0-9-]+\.(?:com|net|org|gg|io|xyz|me|co|ru|tk|ly|be)\b[^\s]*)/gi;
+            const urlPattern = /(?:https?:\/\/[^\s]+|www\.[^\s]+|\b[a-z0-9-]+\.(?:com|net|org|gg|io|xyz|me|co|ru|tk|ly|be|app|dev|site|link)\b[^\s]*)/gi;
             const matches = text.match(urlPattern);
             if (!matches) return { allowed: true };
 
@@ -1002,16 +869,16 @@
                 if (!isOfficialRobloxUrl(candidate)) {
                     return {
                         allowed: false,
-                        reason: `Blocked link "${m}". Only official roblox.com links are allowed to prevent scams.`
+                        reason: `Blocked link "${m}". Only official roblox.com links are allowed.`
                     };
                 }
             }
             return { allowed: true };
         }
 
-        function isUserOnline(lastSeen) {
+        function isOnlineNow(lastSeen) {
             if (!lastSeen) return false;
-            return (Date.now() - lastSeen) < 35000; // Online if heartbeat within 35s
+            return (Date.now() - lastSeen) <= 45000; // Green if within 45s
         }
 
         function formatCountdown(ms) {
@@ -1058,6 +925,7 @@
             }, 2800);
         }
 
+        // Safe clipboard copy using execCommand for iframe & cross-browser compatibility
         function copyTextSafe(text) {
             try {
                 const ta = document.createElement("textarea");
@@ -1077,8 +945,48 @@
             }
         }
 
+        function setConnectionStatus(state, message) {
+            const dot = document.getElementById("syncDot");
+            const txt = document.getElementById("syncText");
+            const errBanner = document.getElementById("firebaseErrorBanner");
+            const errText = document.getElementById("firebaseErrorText");
+
+            if (state === "live") {
+                isConnected = true;
+                dot.className = "w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0";
+                txt.textContent = "Live Cloud Sync";
+                txt.className = "truncate text-emerald-300";
+                errBanner.classList.add("hidden");
+            } else if (state === "error") {
+                isConnected = false;
+                dot.className = "w-2 h-2 rounded-full bg-rose-500 shrink-0";
+                txt.textContent = "Sync Error";
+                txt.className = "truncate text-rose-300";
+                errText.textContent = message;
+                errBanner.classList.remove("hidden");
+            } else {
+                dot.className = "w-2 h-2 rounded-full bg-amber-400 animate-pulse shrink-0";
+                txt.textContent = message || "Connecting...";
+                txt.className = "truncate text-amber-300";
+            }
+        }
+
+        function getActivePosts() {
+            const now = Date.now();
+            return allLivePosts
+                .filter((p) => p.status !== "fused" && (p.expiresAt || 0) > now)
+                .sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+        }
+
+        function buildPostSummaryText(p) {
+            if (p.mode === "event") return `⚡ ${p.eventName}`;
+            if (p.mode === "have") return `Has ${p.have}${p.income ? ` (${p.income})` : ""}`;
+            if (p.mode === "need") return `LF ${p.need}${p.minIncome && p.minIncome !== "Any" ? ` (${p.minIncome})` : ""}`;
+            return `${p.have} ⇄ ${p.need}`;
+        }
+
         /* ============================================================================
-           5. SEARCHABLE PET COMBOBOX WIDGET
+           6. SEARCHABLE PET COMBOBOX WIDGET
         ============================================================================ */
         function createPetCombobox(inputEl, dropdownEl, clearBtnEl, pairHintEl) {
             function updateHint() {
@@ -1101,14 +1009,13 @@
 
                 dropdownEl.innerHTML = "";
 
-                // Custom pet option if typed text isn't an exact match
                 const exact = filtered.some((p) => p.name.toLowerCase() === q);
                 if (q && !exact) {
                     const customBtn = document.createElement("button");
                     customBtn.type = "button";
-                    customBtn.className = "w-full text-left px-3.5 py-2.5 text-xs hover:bg-violet-500/15 flex items-center justify-between gap-2";
+                    customBtn.className = "w-full text-left px-3.5 py-2.5 text-xs hover:bg-fuchsia-500/15 flex items-center justify-between gap-2";
                     customBtn.innerHTML = `
-                        <span class="text-violet-300 font-semibold truncate">Use custom: "${escapeHtml(inputEl.value.trim())}"</span>
+                        <span class="text-fuchsia-300 font-semibold truncate">Use custom pet: "${escapeHtml(inputEl.value.trim())}"</span>
                         <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${RARITY_BADGE.Custom}">Custom</span>
                     `;
                     customBtn.addEventListener("mousedown", (e) => {
@@ -1163,16 +1070,27 @@
             return { select, updateHint };
         }
 
+        // Form DOM Refs
+        const usernameInput = document.getElementById("usernameInput");
         const haveInput = document.getElementById("haveInput");
         const needInput = document.getElementById("needInput");
         const eventInput = document.getElementById("eventInput");
-        const usernameInput = document.getElementById("usernameInput");
         const incomeInput = document.getElementById("incomeInput");
         const weightInput = document.getElementById("weightInput");
         const mutationsInput = document.getElementById("mutationsInput");
+        const plainCheckbox = document.getElementById("plainCheckbox");
         const minIncomeInput = document.getElementById("minIncomeInput");
         const vipLinkInput = document.getElementById("vipLinkInput");
         const noteInput = document.getElementById("noteInput");
+
+        // Pre-fill saved Roblox username & VIP link from localStorage
+        if (savedRobloxUsername) {
+            usernameInput.value = savedRobloxUsername;
+            document.getElementById("savedUserBadge").classList.remove("hidden");
+        }
+        if (savedVipLink) {
+            vipLinkInput.value = savedVipLink;
+        }
 
         const haveCombo = createPetCombobox(
             haveInput,
@@ -1188,18 +1106,19 @@
         );
 
         /* ============================================================================
-           6. 3-MODE + EVENT FORM CONTROLS
+           7. FORM MODE TABS & INTERACTIONS
         ============================================================================ */
         function setPostMode(mode) {
             activePostMode = mode;
+            const activeClasses = {
+                have: "bg-cyan-500 text-zinc-950 shadow",
+                need: "bg-fuchsia-500 text-white shadow",
+                both: "bg-gradient-to-r from-cyan-400 to-fuchsia-400 text-zinc-950 shadow",
+                event: "bg-emerald-500 text-zinc-950 shadow",
+            };
+
             document.querySelectorAll(".mode-tab").forEach((tab) => {
                 const isActive = tab.dataset.mode === mode;
-                const activeClasses = {
-                    have: "bg-cyan-500 text-zinc-950 shadow",
-                    need: "bg-violet-500 text-white shadow",
-                    both: "bg-gradient-to-r from-cyan-400 to-violet-400 text-zinc-950 shadow",
-                    event: "bg-emerald-500 text-zinc-950 shadow",
-                };
                 tab.className = `mode-tab px-2.5 py-2 rounded-lg text-xs font-bold transition-all ${isActive ? activeClasses[mode] : "text-zinc-400 hover:text-white"}`;
             });
 
@@ -1227,37 +1146,30 @@
             });
         });
 
-        // Plain / No Mutations toggle
-        const plainToggleBtn = document.getElementById("plainToggleBtn");
-        plainToggleBtn.addEventListener("click", () => {
-            isPlainMutations = !isPlainMutations;
-            if (isPlainMutations) {
-                plainToggleBtn.className = "text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-emerald-400/60 bg-emerald-500/20 text-emerald-300 transition-all";
-                mutationsInput.value = "Plain (No Mutations)";
+        plainCheckbox.addEventListener("change", () => {
+            if (plainCheckbox.checked) {
+                mutationsInput.value = "Plain / No Muts";
                 mutationsInput.disabled = true;
                 mutationsInput.classList.add("opacity-60");
             } else {
-                plainToggleBtn.className = "text-[11px] font-semibold px-2.5 py-0.5 rounded-full border border-zinc-700 bg-zinc-900 text-zinc-400 hover:text-white transition-all";
                 mutationsInput.value = "";
                 mutationsInput.disabled = false;
                 mutationsInput.classList.remove("opacity-60");
             }
         });
 
-        // Min income presets
         document.querySelectorAll(".min-preset").forEach((btn) => {
             btn.addEventListener("click", () => {
                 minIncomeInput.value = btn.dataset.min;
                 document.querySelectorAll(".min-preset").forEach((b) => {
                     const active = b.dataset.min === btn.dataset.min;
                     b.className = active
-                        ? "min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-violet-500/20 border border-violet-400/50 text-violet-300"
+                        ? "min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-fuchsia-500/20 border border-fuchsia-400/50 text-fuchsia-300"
                         : "min-preset px-2 py-0.5 rounded-md text-[10px] font-bold bg-zinc-900 border border-zinc-700 text-zinc-400 hover:text-white";
                 });
             });
         });
 
-        // Duration toggle
         document.querySelectorAll(".duration-pill").forEach((pill) => {
             pill.addEventListener("click", () => {
                 selectedDurationMinutes = Number(pill.dataset.duration);
@@ -1271,7 +1183,7 @@
         });
 
         /* ============================================================================
-           7. INSTANT MATCH STRIP RENDERER
+           8. INSTANT MATCH STRIP
         ============================================================================ */
         function renderInstantMatches(myPost) {
             const strip = document.getElementById("instantMatchStrip");
@@ -1284,7 +1196,7 @@
                 return;
             }
 
-            const activePosts = getAllActivePosts();
+            const activePosts = getActivePosts();
             const ranked = [];
 
             activePosts.forEach((p) => {
@@ -1292,27 +1204,27 @@
                 if (res) ranked.push({ post: p, match: res });
             });
 
-            // Sort: Tier 1 (Exact Match) before Tier 2 (Possible Match), then newest
-            ranked.sort((a, b) => a.match.tier - b.match.tier || b.post.createdAt - a.post.createdAt);
+            // Tier 1 (Exact Match) first, then Tier 2 (Possible Match), then newest
+            ranked.sort((a, b) => a.match.tier - b.match.tier || (b.post.createdAt || 0) - (a.post.createdAt || 0));
 
             if (ranked.length === 0) {
                 strip.classList.remove("hidden");
-                titleEl.textContent = "Post Live — Waiting for Partners";
-                subEl.textContent = "No instant matches yet, but your listing is live at the top of the board.";
+                titleEl.textContent = "Listing Live — Waiting for Partners";
+                subEl.textContent = "Your post is live across all devices. Matching partners will appear here automatically.";
                 container.innerHTML = "";
                 return;
             }
 
             strip.classList.remove("hidden");
-            titleEl.textContent = `${ranked.length} Active Match${ranked.length === 1 ? "" : "es"} Found!`;
-            subEl.textContent = `Auto-matched for your ${myPost.mode === "event" ? myPost.eventName : (myPost.have || myPost.need)} listing`;
+            titleEl.textContent = `${ranked.length} Instant Match${ranked.length === 1 ? "" : "es"} Found!`;
+            subEl.textContent = `Smart matches for your ${myPost.mode === "event" ? myPost.eventName : (myPost.have || myPost.need)} listing`;
             container.innerHTML = "";
 
             ranked.slice(0, 4).forEach(({ post, match }) => {
                 const isExact = match.tier === 1;
-                const online = isUserOnline(post.lastSeen);
+                const online = isOnlineNow(post.lastSeen);
                 const card = document.createElement("div");
-                card.className = `rounded-xl p-3 bg-[#0b0c10]/90 border ${isExact ? "border-emerald-500/45" : "border-amber-500/45"} flex flex-col justify-between gap-2.5`;
+                card.className = `rounded-xl p-3 bg-[#0b0c10]/95 border ${isExact ? "border-emerald-500/55 shadow-md shadow-emerald-500/10" : "border-amber-500/45"} flex flex-col justify-between gap-2.5`;
                 card.innerHTML = `
                     <div class="space-y-1.5">
                         <div class="flex items-center justify-between gap-2">
@@ -1321,25 +1233,25 @@
                                 <span class="text-xs font-extrabold text-white truncate">${escapeHtml(post.username)}</span>
                             </div>
                             <span class="shrink-0 text-[10px] font-extrabold px-2 py-0.5 rounded-full border ${isExact ? "bg-emerald-500/15 text-emerald-300 border-emerald-400/50" : "bg-amber-500/15 text-amber-300 border-amber-400/50"}">
-                                ${isExact ? "✓ Exact Match" : "★ Possible • Stats not listed"}
+                                ${isExact ? "✓ Exact Match" : "★ Possible Match (Stats not listed)"}
                             </span>
                         </div>
                         <div class="text-xs font-semibold text-cyan-300">${escapeHtml(match.reason)}</div>
                         <div class="flex flex-wrap gap-1.5 text-[10px]">
                             ${post.income ? `<span class="px-2 py-0.5 rounded bg-zinc-800 text-emerald-300 font-bold">${escapeHtml(post.income)}/s</span>` : ""}
                             ${post.weight ? `<span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">${escapeHtml(post.weight)}</span>` : ""}
-                            ${post.mutations ? `<span class="px-2 py-0.5 rounded bg-zinc-800 text-violet-300">${escapeHtml(post.mutations)}</span>` : ""}
+                            ${post.plain ? `<span class="px-2 py-0.5 rounded bg-zinc-800 text-zinc-300">Plain</span>` : (post.mutations ? `<span class="px-2 py-0.5 rounded bg-zinc-800 text-fuchsia-300">${escapeHtml(post.mutations)}</span>` : "")}
                         </div>
                     </div>
                     <div class="flex items-center gap-2">
                         <button type="button" data-chat-post="${escapeHtml(post.id)}"
-                            class="open-chat-btn flex-1 py-1.5 px-3 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 text-white text-xs font-bold transition-all active:scale-95">
+                            class="open-chat-btn flex-1 py-1.5 px-3 rounded-lg bg-gradient-to-r from-fuchsia-600 to-cyan-600 hover:from-fuchsia-500 hover:to-cyan-500 text-white text-xs font-bold transition-all active:scale-95">
                             Chat to Fuse
                         </button>
                         ${post.vipLink && isOfficialRobloxUrl(post.vipLink) ? `
                             <a href="${escapeHtml(post.vipLink)}" target="_blank" rel="noopener noreferrer"
                                 class="py-1.5 px-2.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 border border-emerald-400/40 text-emerald-300 text-xs font-bold transition-all">
-                                Join VIP
+                                Join Server
                             </a>
                         ` : ""}
                     </div>
@@ -1354,66 +1266,58 @@
         });
 
         /* ============================================================================
-           8. LIVE FEED RENDERER & FILTERS
+           9. LIVE FEED RENDERER
         ============================================================================ */
         function getFilteredFeed() {
-            const active = getAllActivePosts();
+            const active = getActivePosts();
             const q = feedSearchQuery.trim().toLowerCase();
 
-            return active
-                .filter((p) => {
-                    if (feedModeFilter !== "all" && p.mode !== feedModeFilter) return false;
+            return active.filter((p) => {
+                if (feedModeFilter !== "all" && p.mode !== feedModeFilter) return false;
 
-                    if (feedQuickFilter !== "ALL") {
-                        if (feedQuickFilter === "EVENTS") {
-                            if (p.mode !== "event") return false;
-                        } else {
-                            const fk = normalizePetKey(feedQuickFilter);
-                            const h = normalizePetKey(p.have);
-                            const n = normalizePetKey(p.need);
-                            if (h !== fk && n !== fk && !h.includes(fk) && !n.includes(fk)) return false;
-                        }
-                    }
+                if (feedQuickFilter !== "ALL") {
+                    const fk = normalizePetKey(feedQuickFilter);
+                    const h = normalizePetKey(p.have);
+                    const n = normalizePetKey(p.need);
+                    if (h !== fk && n !== fk && !h.includes(fk) && !n.includes(fk)) return false;
+                }
 
-                    if (!q) return true;
-                    const blob = `${p.username} ${p.have} ${p.need} ${p.eventName} ${p.income} ${p.weight} ${p.mutations} ${p.note}`.toLowerCase();
-                    return blob.includes(q);
-                })
-                .sort((a, b) => b.createdAt - a.createdAt);
+                if (!q) return true;
+                const blob = `${p.username} ${p.have} ${p.need} ${p.eventName} ${p.income} ${p.weight} ${p.mutations} ${p.minIncome} ${p.note}`.toLowerCase();
+                return blob.includes(q);
+            });
         }
 
         function getModeBadgeHtml(mode) {
             if (mode === "have") return `<span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-cyan-500/15 text-cyan-300 border border-cyan-500/35">I HAVE</span>`;
-            if (mode === "need") return `<span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-violet-500/15 text-violet-300 border border-violet-500/35">I NEED (LF)</span>`;
-            if (mode === "both") return `<span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-gradient-to-r from-cyan-500/20 to-violet-500/20 text-white border border-cyan-400/35">HAVE + NEED</span>`;
+            if (mode === "need") return `<span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-fuchsia-500/15 text-fuchsia-300 border border-fuchsia-500/35">I NEED (LF)</span>`;
+            if (mode === "both") return `<span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-gradient-to-r from-cyan-500/20 to-fuchsia-500/20 text-white border border-cyan-400/35">HAVE + NEED</span>`;
             return `<span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-300 border border-emerald-500/35">⚡ EVENT</span>`;
         }
 
-        function buildPostSummaryText(p) {
-            if (p.mode === "event") return `⚡ ${p.eventName}`;
-            if (p.mode === "have") return `Has ${p.have}${p.income ? ` (${p.income})` : ""}`;
-            if (p.mode === "need") return `Needs ${p.need}${p.minIncome && p.minIncome !== "Any" ? ` (Min ${p.minIncome})` : ""}`;
-            return `${p.have} ⇄ ${p.need}`;
-        }
-
         function renderFeed() {
-            const activeAll = getAllActivePosts();
+            const activeAll = getActivePosts();
             const filtered = getFilteredFeed();
             const now = Date.now();
-            const myUid = getMyUid();
 
             document.getElementById("activeCountBadge").textContent = `${activeAll.length} Active`;
             document.getElementById("visibleCountLabel").textContent = `${filtered.length} showing`;
 
             const feedList = document.getElementById("feedList");
+
             if (filtered.length === 0) {
+                const isTotalEmpty = activeAll.length === 0;
                 feedList.innerHTML = `
-                    <div class="bg-[#12141d] border border-zinc-800 rounded-2xl p-10 text-center flex flex-col items-center">
-                        <div class="w-11 h-11 rounded-xl bg-zinc-800/80 flex items-center justify-center text-zinc-400 mb-3">
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <div class="bg-[#12141d] border border-zinc-800/90 rounded-2xl p-10 text-center flex flex-col items-center">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyan-500/15 to-fuchsia-500/15 border border-cyan-400/30 flex items-center justify-center text-cyan-400 mb-3">
+                            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C7.5 2 4.5 8.5 4.5 14a7.5 7.5 0 0 0 15 0C19.5 8.5 16.5 2 12 2Z"></path><line x1="12" y1="10" x2="12" y2="16"></line><line x1="9" y1="13" x2="15" y2="13"></line></svg>
                         </div>
-                        <h3 class="text-sm font-bold text-zinc-200">No matching listings right now</h3>
-                        <p class="text-xs text-zinc-400 mt-1 max-w-xs">Clear your filter or post your own request on the left so partners can chat with you.</p>
+                        <h3 class="text-sm font-extrabold text-white">${isTotalEmpty ? "No live fusion listings yet" : "No listings match your filter"}</h3>
+                        <p class="text-xs text-zinc-400 mt-1.5 max-w-sm leading-relaxed">
+                            ${isTotalEmpty
+                                ? "Be the first to post a fusion request on the left! Your post will sync live across all phones and PCs instantly."
+                                : "Try clearing your search or switching pet/mode filters to see other active players."}
+                        </p>
                     </div>
                 `;
                 return;
@@ -1422,20 +1326,19 @@
             feedList.innerHTML = "";
 
             filtered.forEach((p) => {
-                const isOwner = p.userId === myUid && !p.isDemo;
-                const online = isUserOnline(p.lastSeen);
+                const isOwner = Boolean(currentUid && p.userId === currentUid);
+                const online = isOnlineNow(p.lastSeen);
                 const totalMs = (p.durationMinutes || 10) * 60 * 1000;
-                const remainingMs = Math.max(0, p.expiresAt - now);
+                const remainingMs = Math.max(0, (p.expiresAt || 0) - now);
                 const { pct, bar, badge } = getCountdownColors(remainingMs, totalMs);
                 const hasVip = Boolean(p.vipLink && isOfficialRobloxUrl(p.vipLink));
 
-                // Pet display block depending on mode
                 let petBlockHtml = "";
                 if (p.mode === "event") {
                     petBlockHtml = `
                         <div class="bg-[#0b0c10] border border-emerald-500/25 rounded-xl p-3 flex items-center justify-between gap-2">
                             <div>
-                                <div class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Group Ritual / Event</div>
+                                <div class="text-[10px] font-bold uppercase tracking-wider text-emerald-400">Group Event / Ritual</div>
                                 <div class="text-sm font-extrabold text-white mt-0.5">${escapeHtml(p.eventName)}</div>
                             </div>
                             <span class="text-[10px] font-bold px-2.5 py-1 rounded-full border ${RARITY_BADGE.Event}">Lobby Open</span>
@@ -1453,7 +1356,7 @@
                                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${RARITY_BADGE[rarity] || RARITY_BADGE.Custom}">${escapeHtml(rarity)}</span>
                                 </div>
                             </div>
-                            ${pair ? `<div class="text-[11px] font-medium text-zinc-400 bg-zinc-900/90 border border-zinc-800 px-2.5 py-1 rounded-lg">Auto-matches <span class="text-cyan-300 font-bold">${escapeHtml(pair.partner)}</span></div>` : ""}
+                            ${pair ? `<div class="text-[11px] font-medium text-zinc-400 bg-zinc-900/90 border border-zinc-800 px-2.5 py-1 rounded-lg">Pairs w/ <span class="text-cyan-300 font-bold">${escapeHtml(pair.partner)}</span></div>` : ""}
                         </div>
                     `;
                 } else if (p.mode === "need") {
@@ -1462,13 +1365,13 @@
                     petBlockHtml = `
                         <div class="bg-[#0b0c10] border border-zinc-800/90 rounded-xl p-3 flex flex-wrap items-center justify-between gap-2">
                             <div>
-                                <div class="text-[10px] font-bold uppercase tracking-wider text-violet-400">Looking For (LF)</div>
+                                <div class="text-[10px] font-bold uppercase tracking-wider text-fuchsia-400">Looking For (LF)</div>
                                 <div class="flex items-center flex-wrap gap-1.5 mt-0.5">
                                     <span class="text-sm font-extrabold text-white">${escapeHtml(p.need)}</span>
                                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${RARITY_BADGE[rarity] || RARITY_BADGE.Custom}">${escapeHtml(rarity)}</span>
                                 </div>
                             </div>
-                            ${pair ? `<div class="text-[11px] font-medium text-zinc-400 bg-zinc-900/90 border border-zinc-800 px-2.5 py-1 rounded-lg">Recipe: <span class="text-violet-300 font-bold">${escapeHtml(pair.recipe)}</span></div>` : ""}
+                            ${pair ? `<div class="text-[11px] font-medium text-zinc-400 bg-zinc-900/90 border border-zinc-800 px-2.5 py-1 rounded-lg">Recipe: <span class="text-fuchsia-300 font-bold">${escapeHtml(pair.recipe)}</span></div>` : ""}
                         </div>
                     `;
                 } else {
@@ -1485,7 +1388,7 @@
                             </div>
                             <div class="hidden sm:flex items-center justify-center w-7 h-7 rounded-full bg-zinc-900 border border-zinc-700 text-zinc-400 text-xs font-bold">⇄</div>
                             <div class="min-w-0 sm:text-right">
-                                <div class="text-[10px] font-bold uppercase tracking-wider text-violet-400">They Need</div>
+                                <div class="text-[10px] font-bold uppercase tracking-wider text-fuchsia-400">They Need</div>
                                 <div class="flex items-center sm:justify-end flex-wrap gap-1.5 mt-0.5">
                                     <span class="text-sm font-extrabold text-white">${escapeHtml(p.need)}</span>
                                     <span class="text-[10px] font-bold px-2 py-0.5 rounded-full border ${RARITY_BADGE[needRarity] || RARITY_BADGE.Custom}">${escapeHtml(needRarity)}</span>
@@ -1495,14 +1398,14 @@
                     `;
                 }
 
-                // Stat pills
+                // Stat Pills
                 const statPills = [];
                 if (p.income) statPills.push(`<span class="px-2.5 py-1 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-bold text-emerald-300">⚡ ${escapeHtml(p.income)}/s</span>`);
                 if (p.weight) statPills.push(`<span class="px-2.5 py-1 rounded-lg bg-zinc-800/90 border border-zinc-700/80 text-[11px] font-semibold text-zinc-200">⚖ ${escapeHtml(p.weight)}</span>`);
                 if (p.plain) {
-                    statPills.push(`<span class="px-2.5 py-1 rounded-lg bg-zinc-800/90 border border-zinc-700/80 text-[11px] font-semibold text-zinc-300">Plain / No Mutations</span>`);
+                    statPills.push(`<span class="px-2.5 py-1 rounded-lg bg-zinc-800/90 border border-zinc-700/80 text-[11px] font-semibold text-zinc-300">Plain / No Muts</span>`);
                 } else if (p.mutations) {
-                    statPills.push(`<span class="px-2.5 py-1 rounded-lg bg-violet-500/10 border border-violet-500/30 text-[11px] font-semibold text-violet-300">✨ ${escapeHtml(p.mutations)}</span>`);
+                    statPills.push(`<span class="px-2.5 py-1 rounded-lg bg-fuchsia-500/10 border border-fuchsia-500/30 text-[11px] font-semibold text-fuchsia-300">✨ ${escapeHtml(p.mutations)}</span>`);
                 }
                 if (p.minIncome && p.minIncome !== "Any" && (p.mode === "need" || p.mode === "both")) {
                     statPills.push(`<span class="px-2.5 py-1 rounded-lg bg-amber-500/10 border border-amber-500/30 text-[11px] font-bold text-amber-300">Min Req: ${escapeHtml(p.minIncome)}</span>`);
@@ -1520,18 +1423,17 @@
                         <div class="flex items-center flex-wrap gap-2 min-w-0">
                             ${getModeBadgeHtml(p.mode)}
                             <div class="flex items-center gap-1.5 min-w-0">
-                                <span class="w-2 h-2 rounded-full ${online ? "bg-emerald-400" : "bg-zinc-500"} shrink-0" title="${online ? "Active Now" : "Offline"}"></span>
+                                <span class="w-2.5 h-2.5 rounded-full ${online ? "bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.7)]" : "bg-zinc-500"} shrink-0" title="${online ? "Active Now" : "Offline / Away"}"></span>
                                 <span class="text-sm font-extrabold text-white truncate">${escapeHtml(p.username)}</span>
                             </div>
                             ${isOwner ? `<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">YOU</span>` : ""}
-                            ${p.isDemo ? `<span class="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-400 border border-zinc-700">Demo</span>` : ""}
                         </div>
                         <span data-timer-text class="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full border ${badge}">
                             ${formatCountdown(remainingMs)} left
                         </span>
                     </div>
 
-                    <!-- Pet / Event Block -->
+                    <!-- Pet / Event Details -->
                     <div class="mb-2.5">${petBlockHtml}</div>
 
                     <!-- Stat Pills -->
@@ -1540,7 +1442,7 @@
                     <!-- Optional Note -->
                     ${p.note ? `<p class="text-xs text-zinc-300 bg-zinc-900/70 border border-zinc-800/80 rounded-lg px-3 py-2 mb-3 break-words">${escapeHtml(p.note)}</p>` : ""}
 
-                    <!-- Action Buttons -->
+                    <!-- Card Actions -->
                     <div class="flex flex-wrap items-center justify-between gap-2 pt-0.5">
                         <div class="flex flex-wrap items-center gap-2">
                             <button type="button" data-copy-user="${escapeHtml(p.username)}"
@@ -1559,7 +1461,7 @@
 
                             ${!isOwner ? `
                                 <button type="button" data-chat-post="${escapeHtml(p.id)}"
-                                    class="open-chat-btn inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-md shadow-violet-500/20 transition-all active:scale-95">
+                                    class="open-chat-btn inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-fuchsia-600 hover:bg-fuchsia-500 text-white text-xs font-bold shadow-md shadow-fuchsia-500/20 transition-all active:scale-95">
                                     <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                                     Chat to Fuse
                                 </button>
@@ -1567,7 +1469,7 @@
                         </div>
 
                         ${isOwner ? `
-                            <div class="flex items-center gap-2">
+                            <div class="flex flex-wrap items-center gap-2">
                                 <button type="button" data-bump-id="${escapeHtml(p.id)}"
                                     class="bump-post-btn px-3 py-2 rounded-xl bg-cyan-500/15 hover:bg-cyan-500/25 border border-cyan-500/40 text-xs font-bold text-cyan-300 transition-all">
                                     Bump (+10m)
@@ -1588,26 +1490,40 @@
                 feedList.appendChild(card);
             });
 
-            // Keep Instant Match Strip updated if user has a live post
+            // Keep Instant Match Strip updated if user's latest post is active
             if (latestMyPostId) {
                 const myPost = activeAll.find((p) => p.id === latestMyPostId);
-                if (myPost) renderInstantMatches(myPost);
+                if (myPost) {
+                    renderInstantMatches(myPost);
+                } else {
+                    document.getElementById("instantMatchStrip").classList.add("hidden");
+                    latestMyPostId = null;
+                }
             }
         }
 
         /* ============================================================================
-           9. POST SUBMISSION, BUMP & MARK FUSED / REMOVE
+           10. CREATE, BUMP & MARK FUSED / REMOVE IN FIRESTORE
         ============================================================================ */
         document.getElementById("postForm").addEventListener("submit", async (e) => {
             e.preventDefault();
             const formErrorBox = document.getElementById("formErrorBox");
             const vipErrorMsg = document.getElementById("vipErrorMsg");
+            const submitBtn = document.getElementById("submitBtn");
+            const submitBtnText = document.getElementById("submitBtnText");
+
             formErrorBox.classList.add("hidden");
             vipErrorMsg.classList.add("hidden");
 
+            if (!currentUid) {
+                formErrorBox.textContent = "Still connecting to Firebase. Please wait a second and try again.";
+                formErrorBox.classList.remove("hidden");
+                return;
+            }
+
             const username = usernameInput.value.trim();
-            const have = activePostMode === "have" || activePostMode === "both" ? haveInput.value.trim() : "";
-            const need = activePostMode === "need" || activePostMode === "both" ? needInput.value.trim() : "";
+            const have = (activePostMode === "have" || activePostMode === "both") ? haveInput.value.trim() : "";
+            const need = (activePostMode === "need" || activePostMode === "both") ? needInput.value.trim() : "";
             const eventName = activePostMode === "event" ? eventInput.value.trim() : "";
             const vipRaw = vipLinkInput.value.trim();
 
@@ -1638,14 +1554,20 @@
                 return;
             }
 
-            // Remember Roblox username & VIP link for session
+            // Save Roblox username & VIP link to localStorage
             savedRobloxUsername = username;
-            if (vipRaw) savedVipLink = vipRaw;
+            try {
+                localStorage.setItem(LS_USER_KEY, username);
+                if (vipRaw) {
+                    savedVipLink = vipRaw;
+                    localStorage.setItem(LS_VIP_KEY, vipRaw);
+                }
+            } catch {}
             document.getElementById("savedUserBadge").classList.remove("hidden");
 
             const now = Date.now();
             const payload = {
-                userId: getMyUid(),
+                userId: currentUid,
                 username,
                 mode: activePostMode,
                 have,
@@ -1653,97 +1575,86 @@
                 eventName,
                 income: (activePostMode === "have" || activePostMode === "both") ? incomeInput.value.trim() : "",
                 weight: (activePostMode === "have" || activePostMode === "both") ? weightInput.value.trim() : "",
-                mutations: (activePostMode === "have" || activePostMode === "both") ? (isPlainMutations ? "Plain" : mutationsInput.value.trim()) : "",
-                plain: (activePostMode === "have" || activePostMode === "both") ? isPlainMutations : false,
+                mutations: (activePostMode === "have" || activePostMode === "both") ? (plainCheckbox.checked ? "Plain" : mutationsInput.value.trim()) : "",
+                plain: (activePostMode === "have" || activePostMode === "both") ? plainCheckbox.checked : false,
                 minIncome: (activePostMode === "need" || activePostMode === "both") ? (minIncomeInput.value.trim() || "Any") : "Any",
                 vipLink: vipRaw,
                 note: noteInput.value.trim(),
                 durationMinutes: selectedDurationMinutes,
+                status: "active",
                 createdAt: now,
                 expiresAt: now + selectedDurationMinutes * 60 * 1000,
-                lastSeen: now,
-                isDemo: false
+                lastSeen: now
             };
 
-            let createdPost = null;
-            if (isFirebaseLive && currentUser && db) {
-                try {
-                    const colRef = collection(db, "artifacts", appId, "public", "data", "fusionPosts");
-                    const docRef = await addDoc(colRef, payload);
-                    createdPost = { id: docRef.id, ...payload };
-                } catch (err) {
-                    console.warn("Firestore add failed, using local fallback:", err);
-                    createdPost = { id: "local-" + now, ...payload };
-                    localPosts.unshift(createdPost);
-                    isFirebaseLive = false;
-                }
-            } else {
-                createdPost = { id: "local-" + now, ...payload };
-                localPosts.unshift(createdPost);
-            }
+            submitBtn.disabled = true;
+            submitBtnText.textContent = "Posting Live...";
 
-            latestMyPostId = createdPost.id;
-            noteInput.value = "";
-            renderFeed();
-            renderInstantMatches(createdPost);
-            showToast(`Posted! Auto-expires in ${selectedDurationMinutes}m.`, "emerald");
+            try {
+                const docRef = await addDoc(collection(db, "fusion_posts"), payload);
+                latestMyPostId = docRef.id;
+                noteInput.value = "";
+                renderInstantMatches({ id: docRef.id, ...payload });
+                showToast(`Posted live! Auto-expires in ${selectedDurationMinutes}m.`, "emerald");
+            } catch (err) {
+                console.error("Failed to post listing:", err);
+                formErrorBox.textContent = `Could not publish to Firestore: ${err.message}`;
+                formErrorBox.classList.remove("hidden");
+            } finally {
+                submitBtn.disabled = false;
+                submitBtnText.textContent = "Post Live & Find Matches";
+            }
         });
 
         async function bumpPost(postId) {
             const now = Date.now();
-            const newExpires = now + 10 * 60 * 1000;
-            if (isFirebaseLive && currentUser && db) {
-                try {
-                    await updateDoc(doc(db, "artifacts", appId, "public", "data", "fusionPosts", postId), {
-                        expiresAt: newExpires,
-                        durationMinutes: 10,
-                        lastSeen: now
-                    });
-                    showToast("Post bumped (+10m)!", "cyan");
-                    return;
-                } catch (err) {
-                    console.warn("Bump error:", err);
-                }
-            }
-            const target = localPosts.find((p) => p.id === postId);
-            if (target) {
-                target.expiresAt = newExpires;
-                target.durationMinutes = 10;
-                target.lastSeen = now;
-                renderFeed();
+            try {
+                await updateDoc(doc(db, "fusion_posts", postId), {
+                    expiresAt: now + 10 * 60 * 1000,
+                    durationMinutes: 10,
+                    lastSeen: now
+                });
                 showToast("Post bumped (+10m)!", "cyan");
+            } catch (err) {
+                console.error("Bump failed:", err);
+                showToast("Could not bump post.", "rose");
             }
         }
 
-        async function removePostAndLockChats(postId) {
-            // Lock all attached chat rooms
-            chatRooms.forEach((room) => {
-                if (room.postId === postId) {
-                    room.locked = true;
-                    syncRoomToFirestore(room);
-                }
-            });
+        async function markPostFused(postId) {
+            try {
+                // Set status="fused" in Firestore
+                await updateDoc(doc(db, "fusion_posts", postId), {
+                    status: "fused",
+                    lastSeen: Date.now()
+                });
 
-            if (isFirebaseLive && currentUser && db) {
-                try {
-                    await deleteDoc(doc(db, "artifacts", appId, "public", "data", "fusionPosts", postId));
-                } catch (err) {
-                    console.warn("Delete error:", err);
-                }
-            } else {
-                localPosts = localPosts.filter((p) => p.id !== postId);
-            }
+                // Auto-lock any linked chat rooms
+                const lockPromises = [];
+                chatRooms.forEach((room) => {
+                    if (room.postId === postId && !room.locked) {
+                        lockPromises.push(
+                            updateDoc(doc(db, "fusion_chats", room.id), {
+                                locked: true,
+                                updatedAt: Date.now()
+                            }).catch(() => {})
+                        );
+                    }
+                });
+                await Promise.all(lockPromises);
 
-            if (latestMyPostId === postId) {
-                latestMyPostId = null;
-                document.getElementById("instantMatchStrip").classList.add("hidden");
+                if (latestMyPostId === postId) {
+                    latestMyPostId = null;
+                    document.getElementById("instantMatchStrip").classList.add("hidden");
+                }
+                showToast("Marked fused & removed! Linked chats locked.", "emerald");
+            } catch (err) {
+                console.error("Mark fused failed:", err);
+                showToast("Could not remove post.", "rose");
             }
-            renderFeed();
-            renderDrawer();
-            showToast("Marked fused & removed! Attached chats locked.", "emerald");
         }
 
-        // Delegated click handlers for feed & instant match strip
+        // Delegated Click Handlers for Feed & Instant Match Strip
         document.addEventListener("click", (e) => {
             const copyBtn = e.target.closest(".copy-user-btn");
             if (copyBtn) {
@@ -1762,12 +1673,12 @@
             }
             const removeBtn = e.target.closest(".remove-post-btn");
             if (removeBtn) {
-                removePostAndLockChats(removeBtn.dataset.removeId);
+                markPostFused(removeBtn.dataset.removeId);
             }
         });
 
         /* ============================================================================
-           10. NO-ACCOUNT 1-ON-1 PRIVATE CHAT DRAWER & MINI-INBOX
+           11. NO-ACCOUNT 1-ON-1 PRIVATE CHAT DRAWER & MINI-INBOX (FIRESTORE SYNCED)
         ============================================================================ */
         const chatBackdrop = document.getElementById("chatBackdrop");
         const chatDrawer = document.getElementById("chatDrawer");
@@ -1787,11 +1698,19 @@
             chatBackdrop.classList.add("hidden");
             chatDrawer.classList.add("translate-x-full");
             pendingChatPostId = null;
+            if (unsubscribeMessages) {
+                unsubscribeMessages();
+                unsubscribeMessages = null;
+            }
         }
 
         document.getElementById("openInboxBtn").addEventListener("click", () => {
             activeDrawerView = "inbox";
             activeRoomId = null;
+            if (unsubscribeMessages) {
+                unsubscribeMessages();
+                unsubscribeMessages = null;
+            }
             openDrawer();
         });
         document.getElementById("closeDrawerBtn").addEventListener("click", closeDrawer);
@@ -1800,28 +1719,62 @@
         document.getElementById("backToInboxBtn").addEventListener("click", () => {
             activeDrawerView = "inbox";
             activeRoomId = null;
+            if (unsubscribeMessages) {
+                unsubscribeMessages();
+                unsubscribeMessages = null;
+            }
             renderDrawer();
         });
 
-        function getActiveNonClosedRoomsCount() {
+        function isRoomBlockedForMe(room) {
+            return Array.isArray(room.blockedBy) && room.blockedBy.includes(currentUid);
+        }
+
+        function isRoomLocked(room) {
+            if (room.locked || room.closed) return true;
+            const post = allLivePosts.find((p) => p.id === room.postId);
+            if (!post) return (room.postExpiresAt || 0) <= Date.now();
+            return post.status === "fused" || (post.expiresAt || 0) <= Date.now();
+        }
+
+        function getActiveOpenRoomsCount() {
             let count = 0;
             chatRooms.forEach((r) => {
-                if (!r.blocked && !r.locked) count++;
+                if (!isRoomBlockedForMe(r) && !isRoomLocked(r)) count++;
             });
             return count;
         }
 
-        function openChatForPost(postId) {
-            const post = getAllActivePosts().find((p) => p.id === postId);
-            if (!post) {
-                showToast("That post has expired.", "amber");
+        function updateInboxBadge() {
+            const badge = document.getElementById("inboxBadge");
+            let visibleRooms = 0;
+            chatRooms.forEach((r) => {
+                if (!isRoomBlockedForMe(r) && !isRoomLocked(r)) visibleRooms++;
+            });
+            if (visibleRooms > 0) {
+                badge.textContent = String(visibleRooms);
+                badge.classList.remove("hidden");
+            } else {
+                badge.classList.add("hidden");
+            }
+        }
+
+        async function openChatForPost(postId) {
+            if (!currentUid) {
+                showToast("Connecting to cloud sync... try again in a moment.", "amber");
                 return;
             }
 
-            // Check if user already set a Roblox username
+            const post = getActivePosts().find((p) => p.id === postId);
+            if (!post) {
+                showToast("That post has expired or been completed.", "amber");
+                return;
+            }
+
             const typedUser = usernameInput.value.trim();
             if (!savedRobloxUsername && typedUser) {
                 savedRobloxUsername = typedUser;
+                try { localStorage.setItem(LS_USER_KEY, typedUser); } catch {}
             }
 
             if (!savedRobloxUsername) {
@@ -1833,48 +1786,84 @@
                 return;
             }
 
-            const myUid = getMyUid();
-            const roomId = `${post.id}__${myUid}`;
+            const roomId = `${post.id}_${currentUid}`;
+            const existing = chatRooms.get(roomId);
 
-            if (!chatRooms.has(roomId)) {
-                // Enforce max 3 active chat rooms per user
-                if (getActiveNonClosedRoomsCount() >= 3) {
-                    showToast("Max 3 active chats allowed. Close a chat in your Mini-Inbox first.", "amber");
+            if (!existing) {
+                // Enforce max 3 active open rooms per user
+                if (getActiveOpenRoomsCount() >= 3) {
+                    showToast("Max 3 active chats allowed. Close an old chat in your Inbox first.", "amber");
                     activeDrawerView = "inbox";
                     openDrawer();
                     return;
                 }
 
-                const newRoom = {
-                    id: roomId,
+                const now = Date.now();
+                const roomDoc = {
                     postId: post.id,
                     postSummary: buildPostSummaryText(post),
+                    postExpiresAt: post.expiresAt,
                     posterId: post.userId,
                     posterName: post.username,
-                    visitorId: myUid,
+                    visitorId: currentUid,
                     visitorName: savedRobloxUsername,
-                    isDemoRoom: Boolean(post.isDemo),
-                    blocked: false,
+                    participants: [post.userId, currentUid],
+                    posterLastSeen: post.lastSeen || now,
+                    visitorLastSeen: now,
                     locked: false,
-                    unread: 0,
-                    lastUpdated: Date.now(),
-                    messages: [
-                        {
-                            senderId: "system",
-                            senderName: "System",
-                            text: `Private 1-on-1 fusion chat started with ${post.username} (${buildPostSummaryText(post)}).`,
-                            ts: Date.now()
-                        }
-                    ]
+                    closed: false,
+                    blockedBy: [],
+                    lastMessageText: `Chat started for ${buildPostSummaryText(post)}`,
+                    createdAt: now,
+                    updatedAt: now
                 };
-                chatRooms.set(roomId, newRoom);
-                syncRoomToFirestore(newRoom);
+
+                try {
+                    await setDoc(doc(db, "fusion_chats", roomId), roomDoc);
+                    await addDoc(collection(db, "fusion_chats", roomId, "messages"), {
+                        senderId: "system",
+                        senderName: "System",
+                        text: `Private 1-on-1 fusion chat opened for ${buildPostSummaryText(post)}.`,
+                        createdAt: now
+                    });
+                    chatRooms.set(roomId, { id: roomId, ...roomDoc });
+                } catch (err) {
+                    console.error("Could not create chat room:", err);
+                    showToast("Could not open chat room. Check Firestore rules.", "rose");
+                    return;
+                }
             }
 
+            openRoomView(roomId);
+        }
+
+        function openRoomView(roomId) {
             activeRoomId = roomId;
             activeDrawerView = "room";
-            const room = chatRooms.get(roomId);
-            if (room) room.unread = 0;
+            activeRoomMessages = [];
+
+            if (unsubscribeMessages) {
+                unsubscribeMessages();
+                unsubscribeMessages = null;
+            }
+
+            // Subscribe to subcollection fusion_chats/{roomId}/messages (zero composite index; sort in memory)
+            unsubscribeMessages = onSnapshot(
+                collection(db, "fusion_chats", roomId, "messages"),
+                (snap) => {
+                    const msgs = [];
+                    snap.forEach((d) => msgs.push({ id: d.id, ...d.data() }));
+                    msgs.sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+                    activeRoomMessages = msgs;
+                    if (activeDrawerView === "room" && activeRoomId === roomId) {
+                        renderRoomMessages();
+                    }
+                },
+                (err) => {
+                    console.error("Messages listener error:", err);
+                }
+            );
+
             openDrawer();
         }
 
@@ -1887,6 +1876,7 @@
             }
             savedRobloxUsername = val;
             usernameInput.value = val;
+            try { localStorage.setItem(LS_USER_KEY, val); } catch {}
             document.getElementById("savedUserBadge").classList.remove("hidden");
             inlineUsernameGate.classList.add("hidden");
             if (pendingChatPostId) {
@@ -1896,24 +1886,33 @@
             }
         });
 
-        function updateInboxBadge() {
-            const badge = document.getElementById("inboxBadge");
-            let total = 0;
-            let unread = 0;
-            chatRooms.forEach((r) => {
-                if (!r.blocked) {
-                    total++;
-                    unread += (r.unread || 0);
-                }
-            });
-            const display = unread > 0 ? unread : total;
-            if (display > 0) {
-                badge.textContent = String(display);
-                badge.classList.remove("hidden");
-                badge.classList.toggle("animate-pulse", unread > 0);
-            } else {
-                badge.classList.add("hidden");
+        function renderRoomMessages() {
+            const messagesEl = document.getElementById("roomMessages");
+            messagesEl.innerHTML = "";
+
+            if (activeRoomMessages.length === 0) {
+                messagesEl.innerHTML = `<div class="text-center text-xs text-zinc-500 py-8">Say hi or tap a quick chip below to coordinate your fuse!</div>`;
+                return;
             }
+
+            activeRoomMessages.forEach((m) => {
+                const wrap = document.createElement("div");
+                if (m.senderId === "system") {
+                    wrap.className = "text-center text-[11px] text-zinc-500 py-1 px-3";
+                    wrap.textContent = m.text;
+                } else {
+                    const isMine = m.senderId === currentUid;
+                    wrap.className = `flex flex-col ${isMine ? "items-end" : "items-start"}`;
+                    wrap.innerHTML = `
+                        <span class="text-[10px] font-semibold text-zinc-500 mb-0.5 px-1">${escapeHtml(m.senderName)}</span>
+                        <div class="max-w-[85%] rounded-2xl px-3.5 py-2 text-xs leading-relaxed break-words ${isMine ? "bg-cyan-500 text-zinc-950 font-semibold rounded-br-sm" : "bg-zinc-800 text-zinc-100 rounded-bl-sm border border-zinc-700/80"}">
+                            ${escapeHtml(m.text)}
+                        </div>
+                    `;
+                }
+                messagesEl.appendChild(wrap);
+            });
+            messagesEl.scrollTop = messagesEl.scrollHeight;
         }
 
         function renderDrawer() {
@@ -1931,11 +1930,11 @@
                 blockBtn.classList.add("hidden");
                 onlineDot.classList.add("hidden");
                 titleEl.textContent = "Mini-Inbox";
-                subEl.textContent = `Active 1-on-1 chats (${getActiveNonClosedRoomsCount()}/3 open)`;
+                subEl.textContent = `Active 1-on-1 chats (${getActiveOpenRoomsCount()}/3 open)`;
 
                 const rooms = Array.from(chatRooms.values())
-                    .filter((r) => !r.blocked)
-                    .sort((a, b) => b.lastUpdated - a.lastUpdated);
+                    .filter((r) => !isRoomBlockedForMe(r))
+                    .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
 
                 if (rooms.length === 0) {
                     inboxView.innerHTML = `
@@ -1944,19 +1943,19 @@
                                 <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
                             </div>
                             <div class="text-sm font-bold text-zinc-200">No active fusion chats</div>
-                            <p class="text-xs text-zinc-400 mt-1">Click <span class="text-violet-300 font-semibold">Chat to Fuse</span> on any listing to coordinate stats and join lobbies privately.</p>
+                            <p class="text-xs text-zinc-400 mt-1">Click <span class="text-fuchsia-300 font-semibold">Chat to Fuse</span> on any live listing to coordinate privately.</p>
                         </div>
                     `;
                     return;
                 }
 
-                const myUid = getMyUid();
                 inboxView.innerHTML = "";
                 rooms.forEach((room) => {
-                    const partnerName = room.posterId === myUid ? room.visitorName : room.posterName;
-                    const linkedPost = getAllActivePosts().find((p) => p.id === room.postId);
-                    const online = linkedPost ? isUserOnline(linkedPost.lastSeen) : false;
-                    const lastMsg = room.messages[room.messages.length - 1];
+                    const iAmPoster = room.posterId === currentUid;
+                    const partnerName = iAmPoster ? room.visitorName : room.posterName;
+                    const partnerLastSeen = iAmPoster ? room.visitorLastSeen : room.posterLastSeen;
+                    const online = isOnlineNow(partnerLastSeen);
+                    const locked = isRoomLocked(room);
 
                     const item = document.createElement("button");
                     item.type = "button";
@@ -1966,36 +1965,25 @@
                             <div class="flex items-center gap-1.5">
                                 <span class="w-2 h-2 rounded-full ${online ? "bg-emerald-400" : "bg-zinc-500"} shrink-0"></span>
                                 <span class="text-xs font-extrabold text-white truncate">${escapeHtml(partnerName)}</span>
-                                ${room.locked ? `<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300">Locked</span>` : ""}
+                                ${locked ? `<span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-500/15 text-amber-300">Locked</span>` : ""}
                             </div>
-                            <div class="text-[11px] font-semibold text-cyan-400 truncate mt-0.5">${escapeHtml(room.postSummary)}</div>
-                            <div class="text-[11px] text-zinc-400 truncate mt-1">${escapeHtml(lastMsg ? lastMsg.text : "")}</div>
+                            <div class="text-[11px] font-semibold text-cyan-400 truncate mt-0.5">${escapeHtml(room.postSummary || "")}</div>
+                            <div class="text-[11px] text-zinc-400 truncate mt-1">${escapeHtml(room.lastMessageText || "")}</div>
                         </div>
-                        ${room.unread > 0 ? `<span class="shrink-0 min-w-[20px] h-5 px-1.5 rounded-full bg-emerald-400 text-zinc-950 text-[10px] font-black flex items-center justify-center">${room.unread}</span>` : ""}
                     `;
-                    item.addEventListener("click", () => {
-                        activeRoomId = room.id;
-                        activeDrawerView = "room";
-                        room.unread = 0;
-                        renderDrawer();
-                    });
+                    item.addEventListener("click", () => openRoomView(room.id));
                     inboxView.appendChild(item);
                 });
                 return;
             }
 
-            // Render Active 1-on-1 Chat Room
+            // Render Active 1-on-1 Room View
             const room = chatRooms.get(activeRoomId);
-            const myUid = getMyUid();
-            const partnerName = room.posterId === myUid ? room.visitorName : room.posterName;
-            const linkedPost = getAllActivePosts().find((p) => p.id === room.postId);
-
-            // Auto-lock if post expired
-            if (!linkedPost && !room.locked) {
-                room.locked = true;
-            }
-
-            const online = linkedPost ? isUserOnline(linkedPost.lastSeen) : false;
+            const iAmPoster = room.posterId === currentUid;
+            const partnerName = iAmPoster ? room.visitorName : room.posterName;
+            const partnerLastSeen = iAmPoster ? room.visitorLastSeen : room.posterLastSeen;
+            const online = isOnlineNow(partnerLastSeen);
+            const locked = isRoomLocked(room);
 
             inboxView.classList.add("hidden");
             roomView.classList.remove("hidden");
@@ -2008,62 +1996,63 @@
             subEl.textContent = online ? "Active Now • Private 1-on-1" : "Tab Closed / Offline";
 
             document.getElementById("roomPostBanner").innerHTML = `
-                <span class="font-semibold text-cyan-300 truncate">${escapeHtml(room.postSummary)}</span>
+                <span class="font-semibold text-cyan-300 truncate">${escapeHtml(room.postSummary || "")}</span>
                 <button type="button" data-copy-user="${escapeHtml(partnerName)}" class="copy-user-btn shrink-0 px-2 py-1 rounded-md bg-zinc-800 hover:bg-zinc-700 text-[11px] font-bold text-zinc-200">
                     Copy ${escapeHtml(partnerName)}
                 </button>
             `;
 
             const lockedBanner = document.getElementById("roomLockedBanner");
+            const lockedText = document.getElementById("roomLockedText");
             const composerArea = document.getElementById("chatComposerArea");
-            lockedBanner.classList.toggle("hidden", !room.locked);
-            composerArea.classList.toggle("opacity-50", room.locked);
-            composerArea.classList.toggle("pointer-events-none", room.locked);
 
-            const messagesEl = document.getElementById("roomMessages");
-            messagesEl.innerHTML = "";
-            room.messages.forEach((m) => {
-                const wrap = document.createElement("div");
-                if (m.senderId === "system") {
-                    wrap.className = "text-center text-[11px] text-zinc-500 py-1 px-3";
-                    wrap.textContent = m.text;
-                } else {
-                    const isMine = m.senderId === myUid;
-                    wrap.className = `flex flex-col ${isMine ? "items-end" : "items-start"}`;
-                    wrap.innerHTML = `
-                        <span class="text-[10px] font-semibold text-zinc-500 mb-0.5 px-1">${escapeHtml(m.senderName)}</span>
-                        <div class="max-w-[85%] rounded-2xl px-3.5 py-2 text-xs leading-relaxed break-words ${isMine ? "bg-cyan-500 text-zinc-950 font-semibold rounded-br-sm" : "bg-zinc-800 text-zinc-100 rounded-bl-sm border border-zinc-700/80"}">
-                            ${escapeHtml(m.text)}
-                        </div>
-                    `;
-                }
-                messagesEl.appendChild(wrap);
-            });
-            messagesEl.scrollTop = messagesEl.scrollHeight;
+            lockedText.textContent = room.closed
+                ? "This chat room was closed."
+                : "Fusion completed / Post expired — chat is locked.";
+            lockedBanner.classList.toggle("hidden", !locked);
+            composerArea.classList.toggle("opacity-50", locked);
+            composerArea.classList.toggle("pointer-events-none", locked);
+
+            renderRoomMessages();
         }
 
-        // Block / Close Room Button
-        document.getElementById("blockCloseRoomBtn").addEventListener("click", () => {
+        // Block / Close Room
+        document.getElementById("blockCloseRoomBtn").addEventListener("click", async () => {
             if (!activeRoomId || !chatRooms.has(activeRoomId)) return;
             const room = chatRooms.get(activeRoomId);
-            room.blocked = true;
-            syncRoomToFirestore(room);
-            activeRoomId = null;
-            activeDrawerView = "inbox";
-            renderDrawer();
-            showToast("Chat closed & user blocked from this room.", "amber");
+            const updatedBlocked = Array.isArray(room.blockedBy) ? [...new Set([...room.blockedBy, currentUid])] : [currentUid];
+
+            try {
+                await updateDoc(doc(db, "fusion_chats", activeRoomId), {
+                    blockedBy: updatedBlocked,
+                    closed: true,
+                    locked: true,
+                    updatedAt: Date.now()
+                });
+                activeRoomId = null;
+                activeDrawerView = "inbox";
+                if (unsubscribeMessages) {
+                    unsubscribeMessages();
+                    unsubscribeMessages = null;
+                }
+                showToast("Chat closed & blocked.", "amber");
+            } catch (err) {
+                console.error("Block/close error:", err);
+                showToast("Could not close chat room.", "rose");
+            }
         });
 
-        // Shortcut Chips
+        // 1-Click Fuse-Ready Shortcut Chips
         document.querySelectorAll(".chat-chip").forEach((chip) => {
             chip.addEventListener("click", () => sendChatMessage(chip.dataset.chip));
         });
         document.getElementById("dropUserChip").addEventListener("click", () => {
-            if (!savedRobloxUsername) {
-                showToast("Set your Roblox username first.", "amber");
+            const user = savedRobloxUsername || usernameInput.value.trim();
+            if (!user) {
+                showToast("Enter your Roblox username first.", "amber");
                 return;
             }
-            sendChatMessage(`Add my Roblox user: ${savedRobloxUsername}`);
+            sendChatMessage(`Add my Roblox user: ${user}`);
         });
         document.getElementById("dropVipChip").addEventListener("click", () => {
             const vip = savedVipLink || vipLinkInput.value.trim();
@@ -2077,7 +2066,6 @@
             }
         });
 
-        // Character Counter
         function updateCharCounter() {
             document.getElementById("charCounter").textContent = `${chatMessageInput.value.length}/160`;
         }
@@ -2094,10 +2082,10 @@
             setTimeout(() => chatWarningBox.classList.add("hidden"), 3500);
         }
 
-        function sendChatMessage(rawText) {
-            if (!activeRoomId || !chatRooms.has(activeRoomId)) return;
+        async function sendChatMessage(rawText) {
+            if (!activeRoomId || !chatRooms.has(activeRoomId) || !currentUid) return;
             const room = chatRooms.get(activeRoomId);
-            if (room.locked || room.blocked) return;
+            if (isRoomLocked(room) || isRoomBlockedForMe(room)) return;
 
             const text = (rawText || "").trim();
             if (!text) return;
@@ -2114,7 +2102,7 @@
                 return;
             }
 
-            // Roblox-only URL filter
+            // Roblox-only link filter
             const linkCheck = checkChatTextForBlockedLinks(text);
             if (!linkCheck.allowed) {
                 showChatWarning(linkCheck.reason);
@@ -2126,60 +2114,29 @@
             chatMessageInput.value = "";
             updateCharCounter();
 
-            room.messages.push({
-                senderId: getMyUid(),
-                senderName: savedRobloxUsername || "You",
-                text,
-                ts: now
-            });
-            room.lastUpdated = now;
-            syncRoomToFirestore(room);
-            renderDrawer();
+            const senderName = savedRobloxUsername || usernameInput.value.trim() || "Player";
+            const iAmPoster = room.posterId === currentUid;
 
-            // Simulate realistic gamer reply in Demo / Local mode
-            if (room.isDemoRoom) {
-                triggerSimulatedDemoReply(room, text);
+            try {
+                await addDoc(collection(db, "fusion_chats", activeRoomId, "messages"), {
+                    senderId: currentUid,
+                    senderName,
+                    text,
+                    createdAt: now
+                });
+                await updateDoc(doc(db, "fusion_chats", activeRoomId), {
+                    lastMessageText: `${senderName}: ${text}`,
+                    updatedAt: now,
+                    ...(iAmPoster ? { posterLastSeen: now } : { visitorLastSeen: now })
+                });
+            } catch (err) {
+                console.error("Send message failed:", err);
+                showChatWarning("Failed to send message. Check connection.");
             }
         }
 
-        function triggerSimulatedDemoReply(room, userMsg) {
-            const typingEl = document.getElementById("typingIndicator");
-            if (activeRoomId === room.id) typingEl.classList.remove("hidden");
-
-            setTimeout(() => {
-                if (room.locked || room.blocked) {
-                    typingEl.classList.add("hidden");
-                    return;
-                }
-                const lower = userMsg.toLowerCase();
-                let reply = `Yo bet! Add me (${room.posterName}) and I'll meet you at the fusion pad.`;
-                if (lower.includes("income") || lower.includes("kg") || lower.includes("stat")) {
-                    reply = `Mine is ready with solid stats, already equipped. Add ${room.posterName} and let's fuse!`;
-                } else if (lower.includes("friend") || lower.includes("req") || lower.includes("add")) {
-                    reply = `Accepted! Join my server now, I'm standing right at the pad.`;
-                } else if (lower.includes("pad")) {
-                    reply = `On my way to the fusion pad right now!`;
-                } else if (lower.includes("roblox.com")) {
-                    reply = `Nice VIP link! Joining your lobby right now, gimme 5 secs.`;
-                }
-
-                room.messages.push({
-                    senderId: room.posterId,
-                    senderName: room.posterName,
-                    text: reply,
-                    ts: Date.now()
-                });
-                room.lastUpdated = Date.now();
-                if (activeDrawerView !== "room" || activeRoomId !== room.id) {
-                    room.unread = (room.unread || 0) + 1;
-                }
-                typingEl.classList.add("hidden");
-                renderDrawer();
-            }, 1450);
-        }
-
         /* ============================================================================
-           11. FEED SEARCH & QUICK FILTER LISTENERS
+           12. SEARCH, MODE PILLS & QUICK PET FILTER LISTENERS
         ============================================================================ */
         const feedSearchInput = document.getElementById("feedSearchInput");
         const clearFeedSearchBtn = document.getElementById("clearFeedSearchBtn");
@@ -2196,9 +2153,17 @@
             renderFeed();
         });
 
-        document.getElementById("modeFilterSelect").addEventListener("change", (e) => {
-            feedModeFilter = e.target.value;
-            renderFeed();
+        document.querySelectorAll(".mode-filter-pill").forEach((pill) => {
+            pill.addEventListener("click", () => {
+                feedModeFilter = pill.dataset.modeFilter;
+                document.querySelectorAll(".mode-filter-pill").forEach((p) => {
+                    const active = p.dataset.modeFilter === feedModeFilter;
+                    p.className = active
+                        ? "mode-filter-pill shrink-0 px-3 py-1 rounded-lg text-[11px] font-bold border transition-all bg-fuchsia-500/20 border-fuchsia-400/60 text-fuchsia-200"
+                        : "mode-filter-pill shrink-0 px-3 py-1 rounded-lg text-[11px] font-bold border transition-all bg-[#0b0c10] border-zinc-800 text-zinc-400 hover:text-white";
+                });
+                renderFeed();
+            });
         });
 
         document.querySelectorAll(".filter-pill").forEach((pill) => {
@@ -2215,12 +2180,11 @@
         });
 
         /* ============================================================================
-           12. 1-SECOND COUNTDOWN LOOP & 15-SECOND ONLINE HEARTBEAT
+           13. 1-SECOND COUNTDOWN TICKER & 15-SECOND ONLINE HEARTBEAT
         ============================================================================ */
         setInterval(() => {
             const now = Date.now();
             let needsRerender = false;
-            const myUid = getMyUid();
 
             document.querySelectorAll("article[data-card-id]").forEach((card) => {
                 const exp = Number(card.dataset.expiresAt);
@@ -2243,160 +2207,92 @@
                 }
             });
 
-            // Auto-expire posts & lock attached chats
-            const activeSource = isFirebaseLive ? remotePosts : localPosts;
-            activeSource.forEach((p) => {
-                if (p.expiresAt <= now) {
-                    needsRerender = true;
-                    chatRooms.forEach((room) => {
-                        if (room.postId === p.id && !room.locked) {
-                            room.locked = true;
-                            syncRoomToFirestore(room);
-                        }
-                    });
-                    if (isFirebaseLive && currentUser && db && p.userId === myUid) {
-                        deleteDoc(doc(db, "artifacts", appId, "public", "data", "fusionPosts", p.id)).catch(() => {});
-                    }
-                }
-            });
-
-            if (isFirebaseLive) {
-                remotePosts = remotePosts.filter((p) => p.expiresAt > now);
-            } else {
-                localPosts = localPosts.filter((p) => p.expiresAt > now);
-            }
-
             if (needsRerender) {
                 renderFeed();
                 renderDrawer();
             }
         }, 1000);
 
-        // 15-second Online Heartbeat
+        // Live 15-second heartbeat updates lastSeen on user's active posts & chat rooms
         setInterval(() => {
+            if (!currentUid || document.visibilityState === "hidden") return;
             const now = Date.now();
-            const myUid = getMyUid();
 
-            // Keep demo "online" listings fresh except the intentionally offline one
-            localPosts.forEach((p) => {
-                if (p.isDemo && p.id !== "demo-p5") p.lastSeen = now;
-                if (p.userId === myUid) p.lastSeen = now;
+            // Update user's active posts
+            getActivePosts().forEach((p) => {
+                if (p.userId === currentUid) {
+                    updateDoc(doc(db, "fusion_posts", p.id), { lastSeen: now }).catch(() => {});
+                }
             });
 
-            if (isFirebaseLive && currentUser && db) {
-                remotePosts.forEach((p) => {
-                    if (p.userId === myUid && p.expiresAt > now) {
-                        updateDoc(doc(db, "artifacts", appId, "public", "data", "fusionPosts", p.id), { lastSeen: now }).catch(() => {});
-                    }
-                });
-            }
+            // Update user's active chat rooms
+            chatRooms.forEach((room) => {
+                if (!isRoomLocked(room) && !isRoomBlockedForMe(room)) {
+                    const field = room.posterId === currentUid ? { posterLastSeen: now } : { visitorLastSeen: now };
+                    updateDoc(doc(db, "fusion_chats", room.id), field).catch(() => {});
+                }
+            });
         }, 15000);
 
         /* ============================================================================
-           13. NON-BLOCKING FIREBASE SYNC (STRICT RULES COMPLIANT)
+           14. STARTUP: SILENT ANONYMOUS AUTH + REAL-TIME FIRESTORE LISTENERS
         ============================================================================ */
-        async function syncRoomToFirestore(room) {
-            if (!isFirebaseLive || !currentUser || !db || room.isDemoRoom) return;
-            try {
-                await setDoc(doc(db, "artifacts", appId, "public", "data", "fusionChats", room.id), {
-                    ...room,
-                    messagesJson: JSON.stringify(room.messages || [])
-                });
-            } catch (err) {
-                console.warn("Chat sync skipped:", err);
-            }
-        }
-
-        async function initFirebase() {
-            const syncDot = document.getElementById("syncDot");
-            const syncText = document.getElementById("syncText");
-
-            if (!firebaseConfig) {
-                syncDot.className = "w-2 h-2 rounded-full bg-emerald-400";
-                syncText.textContent = "Interactive Mode";
-                return;
-            }
+        async function bootApp() {
+            // Render initial shell immediately (zero blank screen)
+            renderFeed();
+            renderDrawer();
+            setConnectionStatus("connecting", "Connecting...");
 
             try {
-                const app = initializeApp(firebaseConfig);
-                db = getFirestore(app);
-                auth = getAuth(app);
+                const cred = await signInAnonymously(auth);
+                currentUid = cred.user.uid;
+                setConnectionStatus("live");
 
-                // RULE 3: Authenticate FIRST before any Firestore query
-                if (initialAuthToken) {
-                    await signInWithCustomToken(auth, initialAuthToken);
-                } else {
-                    await signInAnonymously(auth);
-                }
-
-                currentUser = auth.currentUser;
-                if (!currentUser) return;
-
-                isFirebaseLive = true;
-                syncDot.className = "w-2 h-2 rounded-full bg-emerald-400 animate-pulse";
-                syncText.textContent = "Live Cloud Sync";
-
-                // RULE 1 & 2: Strict artifact public path, simple collection listener
+                // 1. Live listener on "fusion_posts" (no composite index; filter & sort in memory)
                 onSnapshot(
-                    collection(db, "artifacts", appId, "public", "data", "fusionPosts"),
-                    (snap) => {
-                        const now = Date.now();
+                    collection(db, "fusion_posts"),
+                    (snapshot) => {
                         const loaded = [];
-                        snap.forEach((d) => {
-                            const data = d.data();
-                            if ((data.expiresAt || 0) > now) {
-                                loaded.push({ id: d.id, ...data });
-                            }
-                        });
-                        remotePosts = loaded;
+                        snapshot.forEach((d) => loaded.push({ id: d.id, ...d.data() }));
+                        allLivePosts = loaded;
+                        setConnectionStatus("live");
                         renderFeed();
+                        if (activeDrawerView === "room") renderDrawer();
                     },
                     (err) => {
-                        console.error("Posts listener error:", err);
-                        isFirebaseLive = false;
-                        syncDot.className = "w-2 h-2 rounded-full bg-amber-400";
-                        syncText.textContent = "Local Fallback";
+                        console.error("Firestore fusion_posts error:", err);
+                        setConnectionStatus("error", `Firestore read error (${err.code}): Check that Firestore is in test mode or allows authenticated reads.`);
                     }
                 );
 
-                onSnapshot(
-                    collection(db, "artifacts", appId, "public", "data", "fusionChats"),
-                    (snap) => {
-                        const myUid = getMyUid();
-                        snap.forEach((d) => {
-                            const data = d.data();
-                            if (data.posterId === myUid || data.visitorId === myUid) {
-                                let msgs = [];
-                                try {
-                                    msgs = data.messagesJson ? JSON.parse(data.messagesJson) : (data.messages || []);
-                                } catch {
-                                    msgs = [];
-                                }
-                                const prev = chatRooms.get(d.id);
-                                const prevLen = prev ? prev.messages.length : 0;
-                                const unread = (activeDrawerView === "room" && activeRoomId === d.id)
-                                    ? 0
-                                    : (prev?.unread || 0) + Math.max(0, msgs.length - prevLen);
+                // 2. Live listener on "fusion_chats" for rooms where currentUid is a participant
+                const chatsQuery = query(
+                    collection(db, "fusion_chats"),
+                    where("participants", "array-contains", currentUid)
+                );
 
-                                chatRooms.set(d.id, { ...data, id: d.id, messages: msgs, unread });
-                            }
-                        });
+                onSnapshot(
+                    chatsQuery,
+                    (snapshot) => {
+                        const nextRooms = new Map();
+                        snapshot.forEach((d) => nextRooms.set(d.id, { id: d.id, ...d.data() }));
+                        chatRooms = nextRooms;
                         renderDrawer();
                     },
-                    (err) => console.error("Chats listener error:", err)
+                    (err) => {
+                        console.error("Firestore fusion_chats error:", err);
+                    }
                 );
             } catch (err) {
-                console.warn("Firebase init fallback:", err);
-                isFirebaseLive = false;
-                syncDot.className = "w-2 h-2 rounded-full bg-emerald-400";
-                syncText.textContent = "Interactive Mode";
+                console.error("Firebase Anonymous Auth failed:", err);
+                setConnectionStatus(
+                    "error",
+                    `Firebase Auth error (${err.code}): Make sure Anonymous sign-in is enabled under Firebase Console → Authentication → Sign-in method.`
+                );
             }
         }
 
-        // Render full UI immediately — zero blank screen
-        renderFeed();
-        renderDrawer();
-        initFirebase();
+        bootApp();
     </script>
 </body>
 </html>
